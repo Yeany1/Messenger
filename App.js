@@ -16,9 +16,9 @@ import { store } from "./store";
 import GiamSat from "./screens/GiamSat";
 import Audio from "./screens/audio";
 import Light_Dark from "./screens/Light_Dark";
-import Order from "./screens/Order";
-import Order_History from "./screens/Order_History";
-import Order_Setting from "./screens/Order_Setting";
+import Order from "./screens/Order/Order";
+import Order_History from "./screens/Order/Order_History";
+import Order_Setting from "./screens/Order/Order_Setting";
 const App = () => {                                                         
     const [hideSplashScreen, setHideSplashScreen] = React.useState(true);                        
     const [fontsLoaded, error] = useFonts({                            

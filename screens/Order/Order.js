@@ -1,30 +1,37 @@
 import {Pressable,StyleSheet,Text,View,TextInput,Image,} from "react-native";
 import React, {useState} from "react";
 import { LinearGradient } from "expo-linear-gradient";
-const  Order_Setting= ({navigation}) => {
+const Order = ({navigation}) => {
     return (
         <View style={styles.contaiter}>
             <Pressable style={styles.btn} onPress={() => navigation.goBack()}>
                 <View style={styles.btn1}>
-                    <Image style={styles.icon} source={require("../assets/left222.png")}/>
-                    <Text style={styles.text}>Tính năng được cá nhân hóa</Text>
+                    <Image style={styles.icon1} source={require("/assets/left222.png")}/>
+                    <Text style={styles.text}>Đơn Đặt Hàng</Text>
                 </View>
             </Pressable>
-            
-            <View style={styles.body}>
-                <Text style={styles.text1}>Cho phép đối với đơn đặt hàng</Text>
-                <Text style={styles.text1}>và cuộc hẹn</Text>
-            </View>
-
-            <View style={styles.btntxt2}>
-                <Text style={styles.txt2}>Cho phép Meta cung cấp các tính năng được cá nhân hóa cho đơn đặt hàng
-                và cuộc hẹn dựa trên cuộc hẹn dựa trên cuộc trò chuyện giữa bạn và doanh nghiệp.</Text>
+            <View style={styles.final}>
+                <View style={styles.body}>
+                    
+                    <Pressable style={styles.btn} onPress={()=> navigation.navigate('Order_History')}>
+                        <Text style={styles.text1}>Lịch sử đặt hàng</Text>
+                        <Image style={styles.icon} source={require("/assets/right.png")}/>
+                        
+                    </Pressable>
+                </View>
+                <View style={styles.body}>
+                <Pressable style={styles.btn} onPress={()=> navigation.navigate('Order_Setting')}>
+                        <Text style={styles.text1}>Cài đặt đơn đặt hàng</Text>
+                        <Image style={styles.icon} source={require("/assets/right.png")}/>
+                        
+                    </Pressable>
+                </View>
             </View>
         </View>
     );
 };
 
-export default Order_Setting;
+export default Order;
 
 const styles = StyleSheet.create({
     contaiter: {
@@ -39,12 +46,23 @@ const styles = StyleSheet.create({
         width: "100%",
     },
     header2: {},
-    
+    final: {
+        width: "100%",
+        // marginTop: 30,
+        alignItems: "center",
+        justifyContent: "center",
+    },
+    icon1: {
+        width: 20,
+        height: 20,
+        marginLeft: -100,
+    },
     icon: {
-        width: 22,
-        height: 30,
-        left: 20,
-        backgroundColor: "#F2F2F2",
+        width: 35,
+        height: 35,
+        paddingTop: 20,
+        marginRight: -300,
+        top: -20,
     },
     btntxt1: {
         position: 'relative', top: 50,
@@ -55,7 +73,7 @@ const styles = StyleSheet.create({
         marginTop: 20,
     },
     btntxt2: {
-        position: 'relative', top: 50,
+        position: 'relative', top: 65,
         width: "100%",
         alignItems: "left",
         justifyContent: "left",
@@ -63,22 +81,22 @@ const styles = StyleSheet.create({
         left: 20,
     },
     btn: {
-        zIndex: 1,
-        position: "absolute",
-        left: 0,
-        top: 0,
+        width: "100%",
+        // flexDirection: "row",
         alignItems: "center",
         justifyContent: "center",
+        marginTop: 20,
+        
     },
     textblue: {
         color: "#1395fc",
         fontWeight: 600,
     },
     text: {
-        fontSize: 18,
+        fontSize: 20,
         fontWeight: "bold",
         color: "#000",
-        marginLeft: 60,
+        marginLeft: 80,
     },
     btn1: {
         width: "100%",
@@ -101,62 +119,35 @@ const styles = StyleSheet.create({
         textAlign: "left",
     },
     body: {
-        marginTop: 20,
+        marginTop: 1,
         width: "95%",
         // alignItems: "center",
         justifyContent: "center",
         borderRadius: 10,
         backgroundColor: "#fff",
-        padding: 20,
+        padding: 5,
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
             height: 2,
+        alignItems: "center",
         },
         shadowOpacity: 0,
         shadowRadius: 0,
         elevation: 0,
         bottom: -50,
-    },
-    body2: {
-        marginTop: 20,
-        width: "85%",
-        alignItems: "center",
-        justifyContent: "center",
-        // backgroundColor: "#fff",
+        flexDirection: "row",
     },
     text1: {
-        fontSize: 16,
-        // fontWeight: "bold",
+        fontSize: 18,
         color: "#000",
+        width: "90%",
+        textAlign: "left",
+        alignItems: "center",
+        justifyContent: "center",
     },
     text2: {
         fontSize: 14,
-        color: "#000",
-    },
-    text3: {
-        fontSize: 14,
-        color: "#000",
-    },
-    body3:{
-        marginTop: 30,
-        width: "95%",
-        justifyContent: "center",
-        borderRadius: 10,
-        backgroundColor: "#fff",
-        padding: 20,
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 2,
-        },
-        shadowOpacity: 0,
-        shadowRadius: 0,
-        elevation: 0,
-    },
-    text4:{
-        width: "70%",
-        fontSize: 16,
         color: "#000",
     },
 });

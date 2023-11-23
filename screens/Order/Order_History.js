@@ -10,7 +10,7 @@ const Order_History = ({navigation}) => {
                     <Text style={styles.text1}>Hủy</Text>
                 </View>
             </Pressable>
-            <Image style={{width: 200, height: 200, marginTop: 200}} source={require("../assets/hs_order.png")}/>
+            <Image style={{width: 200, height: 200, marginTop: 200}} source={require("/assets/hs_order.png")}/>
         </View>
     );
 };
