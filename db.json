@@ -1,0 +1,58 @@
+{
+  "users": [
+    {
+      "soDienThoai": "0559023868",
+      "matKhau": "e10adc3949ba59abbe56e057f20f883e",
+      "ten": "Ngô Yến",
+      "id": 1
+    },
+    {
+      "soDienThoai": "0559023861",
+      "matKhau": "e10adc3949ba59abbe56e057f20f883e",
+      "ten": "Ngô Yến",
+      "id": 2
+    },
+    {
+      "soDienThoai": "0559023862",
+      "matKhau": "e10adc3949ba59abbe56e057f20f883e",
+      "ten": "Ngô Yến",
+      "id": 3
+    },
+    {
+      "soDienThoai": "0385705410",
+      "matKhau": "e10adc3949ba59abbe56e057f20f883e",
+      "ten": "Ngô Yến",
+      "id": 4
+    },
+    {
+      "soDienThoai": "0333900858",
+      "matKhau": "e10adc3949ba59abbe56e057f20f883e",
+      "ten": "Ngô Yến",
+      "id": 5
+    }
+  ],
+  "chats": [
+    {
+      "id": 1,
+      "idNguoiGui": 1,
+      "idNguoiNhan": 2,
+      "noiDung": "Chào bạn",
+      "thoiGian": "2020-12-12 12:12:12"
+    },
+    {
+      "id": 2,
+      "idNguoiGui": 2,
+      "idNguoiNhan": 1,
+      "noiDung": "Chào bạn",
+      "thoiGian": "2020-12-12 12:50:50"
+    }
+  ],
+  "logs": [
+    {
+      "id": 1,
+      "idUser": 1,
+      "loginTime": "2020-12-12 12:12:12",
+      "logoutTime": "2020-12-12 12:12:12"
+    }
+  ]
+}
