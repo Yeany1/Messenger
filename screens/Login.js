@@ -1,8 +1,8 @@
 import {Pressable, StyleSheet, Text, View, TextInput, Image,} from "react-native";
 import React, { useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
-import Header1 from "../components/Header1";
-import Header2 from "../components/Header2";
+// import Header1 from "../components/Header1";
+// import Header2 from "../components/Header2";
 import { useDispatch } from "react-redux";
 import { userLogin } from "../features/users/usersSlice";
 

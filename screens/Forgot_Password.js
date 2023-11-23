@@ -1,8 +1,6 @@
 import {Pressable,StyleSheet,Text,View,TextInput,Image,} from "react-native";
 import React, { useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
-import Header1 from "../components/Header1";
-import Header2 from "../components/Header2";
 
 const Forgot_Password = ({navigation}) => {
     const [soDienThoai, setSoDienThoai] = useState("");
@@ -12,8 +10,6 @@ const Forgot_Password = ({navigation}) => {
     return (
         <View style={styles.contaiter}>
             <View style={styles.header}>
-                {/* <Header1 />
-                <Header2 /> */}
                 <Pressable style={styles.btn} onPress={() => navigation.goBack()} >
                     <Image style={styles.icon} source={require("../assets/left2.png")}/>
                 </Pressable>
@@ -36,12 +32,6 @@ const Forgot_Password = ({navigation}) => {
                     onChangeText={setSoDienThoai}
                 />
             </View>
-            {/* <Pressable style={styles.wrapicon} onPress={handleNavigate}>
-                <Image
-                    style={styles.icon2}
-                    source={require("../assets/arrow-right.svg")}
-                />
-            </Pressable> */}
         </View>
     );
 };

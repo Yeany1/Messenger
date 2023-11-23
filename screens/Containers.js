@@ -1,11 +1,12 @@
 import { StyleSheet, Text, View } from "react-native"; 
 import React from "react";  
-import TinNhan from "./Chats";
-import DanhBa from "./List_Call";
-import KhamPha from "./Phonebook";
-import NhatKy from "./Menu";
+import Chats from "./Chats";
+import List_Call from "./List_Call";
+import Phonebook from "./Phonebook";
+import Menu from "./Menu";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Icon } from "zmp-ui";
+import TimKiem from "./TimKiem";
 const Tab = createBottomTabNavigator();
 const Containers = () => {
   return (
@@ -14,23 +15,18 @@ const Containers = () => {
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
           if (route.name === "Chats") {
-            iconName = focused ? "zi-chat-solid" : "zi-chat";
+            iconName =  "zi-chat-solid" ;
           } else if (route.name === "List_Call") {
-            iconName = focused ? "zi-call-solid" : "zi-call";
+            iconName =  "zi-video-solid";
           } else if (route.name === "Phonebook") {
-            iconName = focused ? "zi-more-grid-solid" : "zi-more-grid";
-          } 
-        //   else if (route.name === "Me") {
-        //     iconName = focused ? "zi-clock-1-solid" : "zi-clock-1";}
-            else if (route.name === "Menu") {
-            iconName = focused ? "zi-user-solid" : "zi-user";
+            iconName =  "zi-members-solid" ;
+          } else if (route.name === "Menu") {
+            iconName = "zi-user-solid" ;
           }
 
           return (
             <Icon
-              icon={iconName}
-              style={{ color: focused ? "#006AF5" : "#000" }}
-            />
+              icon={iconName} style={{ color: focused ? "#006AF5" : "#000" }}/>
           );
         },
         tabBarActiveTintColor: "#006AF5",
@@ -54,12 +50,6 @@ const Containers = () => {
         component={Phonebook}
         options={{ headerShown: false }}
       />
-      
-      {/* <Tab.Screen
-        name="Nhật ký"
-        component={NhatKy}
-        options={{ headerShown: false }}
-      /> */}
       <Tab.Screen
         name="Menu"
         component={Menu}

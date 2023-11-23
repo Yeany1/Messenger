@@ -2,8 +2,8 @@ import {Pressable,StyleSheet,Text,View,TextInput,Image,} from "react-native";
 import { StackActions } from '@react-navigation/native';
 import React, { useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
-import Header1 from "../components/Header1";
-import Header2 from "../components/Header2";
+// import Header1 from "../components/Header1";
+// import Header2 from "../components/Header2";
 import checkboxUnchecked from "../assets/checkbox.svg";
 import checkboxChecked from "../assets/checkbox1.svg";
 const onPressButton = () => {

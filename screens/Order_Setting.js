@@ -1,60 +1,30 @@
 import {Pressable,StyleSheet,Text,View,TextInput,Image,} from "react-native";
 import React, {useState} from "react";
 import { LinearGradient } from "expo-linear-gradient";
-const TimKiem = ({navigation}) => {
+const  Order_Setting= ({navigation}) => {
     return (
         <View style={styles.contaiter}>
             <Pressable style={styles.btn} onPress={() => navigation.goBack()}>
                 <View style={styles.btn1}>
                     <Image style={styles.icon} source={require("../assets/left222.png")}/>
-                    <Text style={styles.text}>Trạng thái hoạt động</Text>
+                    <Text style={styles.text}>Tính năng được cá nhân hóa</Text>
                 </View>
             </Pressable>
-            <View style={styles.body}>
-                <Text style={styles.text1}> Hiển thị khi bạn đang hoạt động </Text>
-            </View>
-            <View style={styles.body2}>
-                <Text style={styles.text2}>Bạn bè và các quan hệ kết nối có thể biết khi nào bạn đang hoạt động hoặc hoạt động
-                    gần đây trên trang cá nhân này. Bạn cũng có thể xem thông tin này về họ. Nếu bạn muốn thay đổi 
-                    cài đặt này thì hãy tắt đi mỗi khi dùng Messenger hoặc Facebook để trạng thái hoạt động của bạn 
-                    không hiển thị nữa. {" "}
-                        <Text style={styles.textblue}>Tìm hiểu thêm</Text>
-                </Text>
-                <Text> </Text>
-                <Text  style={styles.text3}>Bạn vẫn có thể sử dụng dịch vụ của chúng tôi nếu tắt trạng thái hoạt động</Text>
-            </View>
-
-            <View style={styles.body3}> 
-                <Text style={styles.text4}>Hiển thị khi các bạn cùng đang hoạt động </Text>
-            </View>
-            <View style={styles.body2}>
-                <Text style={styles.text2}>Bạn bè và các quan hệ kết nối sẽ biết khi các bạn đang hoạt động trong
-                cùng đoạn chat. Bạn cũng sẽ biết khi họ đang hoạt động trong cùng đoạn chat. {" "}
-                        <Text style={styles.textblue}>Tìm hiểu thêm</Text>
-                </Text>
-            </View>
             
-            {/* <Text style={styles.text1}> Đăng Ký </Text>
             <View style={styles.body}>
-                <View style={styles.wraptext2}>
-                    <Text style={styles.text3}> Bạn tên gì? </Text>
-                    <Text style={styles.text2}> Nhập tên bạn sử dụng trong đời thực</Text>
-                    <Pressable  style={styles.btn5} onPress={handleNavigate}>
-                        <Text  style={styles.btntext2}>Tiếp </Text>
-                    </Pressable>
-                </View>
+                <Text style={styles.text1}>Cho phép đối với đơn đặt hàng</Text>
+                <Text style={styles.text1}>và cuộc hẹn</Text>
+            </View>
 
-                <TextInput
-                    style={styles.input1}
-                    placeholder="Họ và tên"
-                    placeholderTextColor="#666"
-                />
-            </View> */}
+            <View style={styles.btntxt2}>
+                <Text style={styles.txt2}>Cho phép Meta cung cấp các tính năng được cá nhân hóa cho đơn đặt hàng
+                và cuộc hẹn dựa trên cuộc hẹn dựa trên cuộc trò chuyện giữa bạn và doanh nghiệp.</Text>
+            </View>
         </View>
     );
 };
 
-export default TimKiem;
+export default Order_Setting;
 
 const styles = StyleSheet.create({
     contaiter: {
@@ -76,6 +46,22 @@ const styles = StyleSheet.create({
         left: 20,
         backgroundColor: "#F2F2F2",
     },
+    btntxt1: {
+        position: 'relative', top: 50,
+        width: "100%",
+        alignItems: "left",
+        justifyContent: "left",
+        left: 20,
+        marginTop: 20,
+    },
+    btntxt2: {
+        position: 'relative', top: 50,
+        width: "100%",
+        alignItems: "left",
+        justifyContent: "left",
+        marginTop: 20,
+        left: 20,
+    },
     btn: {
         zIndex: 1,
         position: "absolute",
@@ -83,7 +69,6 @@ const styles = StyleSheet.create({
         top: 0,
         alignItems: "center",
         justifyContent: "center",
-
     },
     textblue: {
         color: "#1395fc",
@@ -93,7 +78,7 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: "bold",
         color: "#000",
-        marginLeft: 80,
+        marginLeft: 60,
     },
     btn1: {
         width: "100%",
@@ -102,8 +87,21 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         marginTop: 20,
     },
+    txt1: {
+        fontSize: 18,
+        fontWeight: "bold",
+        color: "#A6A6A6",
+        width: "90%",
+        textAlign: "left",
+    },
+    txt2: {
+        fontSize: 16,
+        color: "#A6A6A6",
+        width: "90%",
+        textAlign: "left",
+    },
     body: {
-        marginTop: 80,
+        marginTop: 20,
         width: "95%",
         // alignItems: "center",
         justifyContent: "center",
@@ -118,6 +116,7 @@ const styles = StyleSheet.create({
         shadowOpacity: 0,
         shadowRadius: 0,
         elevation: 0,
+        bottom: -50,
     },
     body2: {
         marginTop: 20,
