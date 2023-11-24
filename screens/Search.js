@@ -62,6 +62,7 @@ export default function Search( {navigation}) {
         value={keyword}
         onChangeText={setKeyword}
         placeholderTextColor={"#8E8E93"}
+        
         />
       </SafeAreaView>
 

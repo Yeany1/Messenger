@@ -21,7 +21,6 @@ function truncateText(text, limit) {
 }
 
 export default function Chats({ navigation }) {
-  
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -75,9 +74,6 @@ export default function Chats({ navigation }) {
       });
   }, []);
 
-
-
-  
   return (
     <SafeAreaView style={styles.container}>
       <SafeAreaView style={styles.containerHeader}>
@@ -95,13 +91,11 @@ export default function Chats({ navigation }) {
               <Image style={{ width: 40, height: 40, borderRadius: "50%" }} source={{ uri: userData[0].avatar }}></Image>
               <Text style={styles.mtextName}>{userData[0].firstName + " " + userData[0].lastName}</Text>
               <Image style={{ width: 30, height: 30, marginTop: 8}} source={require('/assets/model.png')}></Image>
-              <TouchableOpacity >
+              {/* <TouchableOpacity > */}
                 <Image style={{ width: 30, height: 30, marginTop: 8 , marginLeft: 40}} source={require('/assets/setting.png')}></Image>
-                <Modal isVisible={isModalVisible} style={{ justifyContent: 'flex-end', margin: 0, height: '66%', width: '90%' }} 
+                {/* <Modal isVisible={isModalVisible} style={{ justifyContent: 'flex-end', margin: 0, height: '66%', width: '90%' }} 
                   animationIn={'slideInLeft'} animationOut={'slideOutLeft'}>
-
-                  </Modal>
-
+                  </Modal> */}
 
 
 
@@ -109,7 +103,8 @@ export default function Chats({ navigation }) {
 
 
 
-              </TouchableOpacity>
+
+              {/* </TouchableOpacity> */}
               
             </TouchableOpacity>
           </SafeAreaView>

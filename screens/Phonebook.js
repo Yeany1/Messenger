@@ -14,7 +14,7 @@ import { createStackNavigator } from "@react-navigation/native-stack";
 import { useEffect, useState } from "react";
 import { FlatList, ScrollView } from "react-native";
 
-export default function Search( {navigation}) {
+export default function Phonebook({ navigation }) {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -49,15 +49,25 @@ export default function Search( {navigation}) {
   return (
     <SafeAreaView style={styles.container}>
       <SafeAreaView style={styles.containerHeader}>
-        {/* <TouchableOpacity style={styles.back} onPress={() => navigation.navigate("Containers")}>
-          <Image
-            style={{ width: 25, height: 25 }}
-            source={require("/assets/icons/back.svg")}
-          />
-        </TouchableOpacity> */}
+        <Text style={styles.search}>Danh bạ</Text>
+      </SafeAreaView>
 
-        <Text 
-        style={styles.search}>Danh bạ</Text>
+      <SafeAreaView style={styles.containerSearch}>
+        <TouchableOpacity
+          style={styles.searchBar}
+        >
+          <Image
+            style={{ width: 16, height: 16 }}
+            source={require("/assets/icons/search-icon.svg")}
+          ></Image>
+          <TextInput
+            style={styles.searchInput}
+            placeholder="Search"
+            placeholderTextColor="#8E8E93"
+            value={keyword}
+            onChangeText={setKeyword}
+          />
+        </TouchableOpacity>
       </SafeAreaView>
 
       <ScrollView style={{ height: "84.3vh", width: "100%" }}>
@@ -66,23 +76,26 @@ export default function Search( {navigation}) {
           data={filteredData}
           keyExtractor={(item) => item.id.toString()}
           renderItem={({ item }) => (
-            <TouchableOpacity style={styles.chatUser} 
-              onPress={() => navigation.navigate("UserChat", {
-                id: item.id,
-                firstName: item.firstName,
-                lastName: item.lastName,
-                avatar: item.avatar,
-              })
+            <TouchableOpacity
+              style={styles.chatUser}
+              onPress={() =>
+                navigation.navigate("UserChat", {
+                  id: item.id,
+                  firstName: item.firstName,
+                  lastName: item.lastName,
+                  avatar: item.avatar,
+                })
               }
             >
              
-                <Image
-                  style={{ width: 40, height: 40, borderRadius: 50 }}
-                  source={{ uri: item.avatar }}/>
+              <Image
+                style={{ width: 40, height: 40, borderRadius: 50 }}
+                source={{ uri: item.avatar }}
+              />
 
-                <Text style={[styles.textNameUser]}>
-                  {item.firstName + " " + item.lastName}
-                </Text>
+              <Text style={[styles.textNameUser]}>
+                {item.firstName + " " + item.lastName}
+              </Text>
             </TouchableOpacity>
           )}
         />
@@ -120,9 +133,9 @@ const styles = StyleSheet.create({
     height: 60,
   },
 
-    back: {
-        marginLeft: 25,
-    },
+  back: {
+    marginLeft: 25,
+  },
 
   textSuggested: {
     fontFamily: "SF Pro Display",
@@ -140,11 +153,33 @@ const styles = StyleSheet.create({
     marginTop: 15,
   },
 
-    textNameUser: {
-        fontFamily: "SF Pro Text",
-        fontSize: 17,
-        fontWeight: 600,
-        color: "#000",
-        marginLeft: 20,
-    },
+  textNameUser: {
+    fontFamily: "SF Pro Text",
+    fontSize: 17,
+    fontWeight: 600,
+    color: "#000",
+    marginLeft: 20,
+  },
+
+  searchBar: {
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "#F2F2F2",
+    borderRadius: 20,
+    marginHorizontal: 15,
+    paddingHorizontal: 15,
+    paddingVertical: 10,
+
+  },
+
+  searchInput: {
+    flex: 1,
+    fontFamily: "SF Pro Text",
+    fontSize: 17,
+    marginLeft: 10,
+    color: "#000",
+
+    outlineStyle: "none",
+  },
+
 });
