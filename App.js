@@ -21,6 +21,7 @@ import Order_History from "./screens/Order/Order_History";
 import Order_Setting from "./screens/Order/Order_Setting";
 import Photo from "./screens/Menu/Photo";
 import Report from "./screens/Menu/Report";
+import Help from "./screens/Menu/Help";
 const App = () => {                                                         
     const [hideSplashScreen, setHideSplashScreen] = React.useState(true);                        
     const [fontsLoaded, error] = useFonts({                            
@@ -53,6 +54,7 @@ const App = () => {
                          <Stack.Screen name="Order_Setting" component={Order_Setting} options={{ headerShown: false }}/>
                          <Stack.Screen name="Photo" component={Photo} options={{ headerShown: false }}/>
                          <Stack.Screen name="Report" component={Report} options={{ headerShown: false }}/>
+                         <Stack.Screen name="Help" component={Help} options={{ headerShown: false }}/>
                      </Stack.Navigator>
                  ) : null} 
              </NavigationContainer>

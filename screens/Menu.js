@@ -198,7 +198,7 @@ const Menu = ({ navigation }) => {
               />
             </SafeAreaView>
             <SafeAreaView style={{ marginLeft: 15 }}>
-              <Text style={styles.textButton}>Quyền riêng tư</Text>
+              <Text style={styles.textButton}>Quyền riêng tư & an toàn</Text>
             </SafeAreaView>
           </TouchableOpacity>
           <TouchableOpacity style={styles.button} onPress={()=> navigation.navigate('Audio')}>
@@ -310,7 +310,7 @@ const Menu = ({ navigation }) => {
             </SafeAreaView>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity style={styles.button} onPress={()=> navigation.navigate('Help')}>
             <SafeAreaView
               style={{
                 width: 40,
