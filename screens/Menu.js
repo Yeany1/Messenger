@@ -331,7 +331,7 @@ const Menu = ({ navigation }) => {
             </SafeAreaView>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity style={styles.button} onPress={()=> navigation.navigate('LegalPolicy')}>
             <SafeAreaView
               style={{
                 width: 40,
@@ -480,8 +480,20 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   Meta: {
-    marginLeft: 70,
+    marginLeft: 15,
     marginTop: 30,
+    backgroundColor: "#F2F2F2",
+    width: "90%",
+    borderRadius: 10,
+    padding: 20,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
+    elevation: 3,
   },
 
   buttonMeta: {

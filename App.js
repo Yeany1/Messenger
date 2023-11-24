@@ -23,6 +23,7 @@ import Photo from "./screens/Menu/Photo";
 import Report from "./screens/Menu/Report";
 import Help from "./screens/Menu/Help";
 import Privacy from "./screens/Menu/Privacy";
+import LegalPolicy from "./screens/Menu/LegalPolicy";
 const App = () => {                                                         
     const [hideSplashScreen, setHideSplashScreen] = React.useState(true);                        
     const [fontsLoaded, error] = useFonts({                            
@@ -57,6 +58,7 @@ const App = () => {
                          <Stack.Screen name="Report" component={Report} options={{ headerShown: false }}/>
                          <Stack.Screen name="Help" component={Help} options={{ headerShown: false }}/>
                          <Stack.Screen name="Privacy" component={Privacy} options={{ headerShown: false }}/>
+                         <Stack.Screen name="LegalPolicy" component={LegalPolicy} options={{ headerShown: false }}/>
                      </Stack.Navigator>
                  ) : null} 
              </NavigationContainer>
