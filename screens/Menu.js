@@ -181,7 +181,7 @@ const Menu = ({ navigation }) => {
 
           <Text style={styles.textTitle}>Preferences</Text>
 
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity style={styles.button} onPress={()=> navigation.navigate('Privacy')}>
             <SafeAreaView
               style={{
                 width: 40,

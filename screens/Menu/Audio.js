@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "center",
-        marginTop: 20,
+        marginTop: 8,
     },
     txt1: {
         fontSize: 18,
