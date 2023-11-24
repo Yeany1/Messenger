@@ -243,29 +243,6 @@ const Menu = ({ navigation }) => {
             </SafeAreaView>
           </TouchableOpacity>
 
-          
-
-          <TouchableOpacity style={styles.button}>
-            <SafeAreaView
-              style={{
-                width: 40,
-                height: 40,
-                backgroundColor: "rgba(36, 150, 255, 1)",
-                borderRadius: "50%",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <Image
-                style={{ width: 22, height: 22 }}
-                source={require("/assets/icons/download.png")}
-              />
-            </SafeAreaView>
-            <SafeAreaView style={{ marginLeft: 15 }}>
-              <Text style={styles.textButton}>Cập nhật</Text>
-            </SafeAreaView>
-          </TouchableOpacity>
-
           <Text style={styles.textTitle}>Safety</Text>
           {/* <Pressable  style={styles.btn10} > */}
           <TouchableOpacity style={styles.button} onPress={()=> navigation.navigate('Login')}>

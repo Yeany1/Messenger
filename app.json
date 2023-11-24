@@ -25,7 +25,9 @@
     },              
     "web": {                             
       "favicon": "./assets/bgr22.png"              
-    }            
-  }             
+    }    
+  }    
+  
+  
 }           
                                  
