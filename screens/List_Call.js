@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import {
   StyleSheet,
   Text,
@@ -8,17 +8,63 @@ import {
   TextInput,
   SafeAreaView,
   ScrollView,
-  Modal,
   FlatList,
 } from "react-native";
-
+import React from 'react'
 import {
   pangestureHandler,
   GestureHandlerRootView,
   State,
 } from "react-native-gesture-handler";
+import { useNavigation } from "@react-navigation/native";
+import UserChat from "./UserChat";
+import Modal from 'react-native-modal';
+
+// import { StatusBar } from "expo-status-bar";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/native-stack";
+import { Pressable } from 'react-native';
+
+import { StatusBar } from "expo-status-bar";
+
 
 export default function Chats({ navigation }) {
+
+  const [isModalVisible, setModalVisible] = useState(false);
+  const [isModalVisible1, setModalVisible1] = useState(false);
+  const toggleModal = () => {
+    setModalVisible(!isModalVisible);
+  };
+  const toggleModal1 = () => {
+    setModalVisible1(!isModalVisible1);
+  };
+  const [userData, setUserData] = useState([]);
+  const [isPressed, setIsPressed] = useState(false);
+
+  const handlePress0 = () => {
+    const navigation = useNavigation();
+    setIsPressed(true);
+  };
+  useEffect(() => {
+    fetch("https://6551dcb15c69a77903292d79.mockapi.io/User", {
+      method: "GET",
+      headers: { "content-type": "application/json" },
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        // handle error
+      })
+      .then((data) => {
+        setUserData(data);
+        // Do something with the list of tasks
+      })
+      .catch((error) => {
+        // handle error
+      });
+  }, []);
+
   const [data, setData] = useState([]);
   const [selectedItem, setSelectedItem] = useState(null);
 
@@ -61,31 +107,82 @@ export default function Chats({ navigation }) {
     setData(newData);
     setSelectedItem(null); // Đóng modal sau khi xóa
   };
+  const closeModalAndGoToNextPage = () => {
+    setModalVisible1(false); // Đóng Modal
+    // navigation.navigate("VideoCall_Screen");
+    // history.push('/screens/VideoCall_Screen.js'); // Chuyển qua trang khác
+    window.location.href = '/screens/VideoCall_Screen.js';
+  };
 
   const renderItem = ({ item }) => (
     <TouchableOpacity
       style={styles.chatUser}
-      onPress={() =>
-        navigation.navigate("Profile_Screen", {
-          id: item.id,
-          firstName: item.firstName,
-          lastName: item.lastName,
-          avatar: item.avatar,
-        })
-      }
-      onLongPress={() => setSelectedItem(item)}
+      // onPress={() =>
+      //   navigation.navigate("Profile_Screen", {
+      //     id: item.id,
+      //     firstName: item.firstName,
+      //     lastName: item.lastName,
+      //     avatar: item.avatar,
+      //   })
+      // }
+      // onLongPress={() => setSelectedItem(item)}
     >
-      <Image style={styles.imgUser} source={{ uri: item.avatar }} />
-      <SafeAreaView style={styles.userStatus}>
-        <Text style={styles.textName}>
-          {item.firstName + " " + item.lastName}
-        </Text>
-        <Text style={styles.statusCall}>Outgoing {randomTime} PM</Text>
-      </SafeAreaView>
-      <TouchableOpacity
-        style={styles.buttonCallOption}
-        onPress={() =>
-          navigation.navigate("UserChat", {
+      <TouchableOpacity style={styles.chatUser} onPress={toggleModal1}>
+        <Image style={styles.imgUser} source={{ uri: item.avatar }} />
+        <SafeAreaView style={styles.userStatus}>
+          <Text style={styles.textName}>
+            {item.firstName + " " + item.lastName}
+          </Text>
+          <Text style={styles.statusCall}>Outgoing {randomTime} PM</Text>
+        </SafeAreaView>
+        
+        <Modal isVisible={isModalVisible1} style={{ justifyContent: 'center', margin: 10, height: '66%', width: '95%', top: '60%', }} animationIn={'slideInUp'} animationOut={'slideOutDown'}>
+        <View style={styles.mmcontainer}>
+
+        {Array.isArray(userData) && userData.length > 0 && (
+          <SafeAreaView>
+            <TouchableOpacity style={styles.mobtn}>
+              <Text style={styles.mtext}>Liên hệ với {userData[0].firstName + " " + userData[0].lastName}</Text>
+              <View style={styles.thinLine} />
+            </TouchableOpacity>
+          </SafeAreaView>
+        )}
+
+        <SafeAreaView style={styles.mbtncontainer}>
+            <TouchableOpacity style={styles.mbtn } onPress={() => 
+            navigation.navigate("VideoCall_Screen", {
+            id: item.id,
+            firstName: item.firstName,
+            lastName: item.lastName,
+            avatar: item.avatar,
+          })
+        }>  
+            <Text style={styles.mbtntxt} >Gọi thoại</Text>
+            
+        </TouchableOpacity>
+
+            <View style={styles.thinLine} />
+
+            <TouchableOpacity style={styles.mbtn} onPress={() =>
+            navigation.navigate("VideoCall_Screen", {
+            id: item.id,
+            firstName: item.firstName,
+            lastName: item.lastName,
+            avatar: item.avatar,
+          })
+        }>
+          <Text style={styles.mbtntxt}>Gọi video</Text>
+          </TouchableOpacity>
+
+            <View style={styles.thinLine} />
+            <TouchableOpacity style={styles.mbtn2} onPress={toggleModal1}><Text style={styles.mbtntxt1}>Hủy</Text></TouchableOpacity>
+        </SafeAreaView>
+        </View>
+      </Modal>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.buttonCallOption} onPress={() =>
+            navigation.navigate("UserChat", {
             id: item.id,
             firstName: item.firstName,
             lastName: item.lastName,
@@ -115,15 +212,94 @@ export default function Chats({ navigation }) {
   return (
     <SafeAreaView style={styles.container}>
       <SafeAreaView style={styles.containerHeader}>
-        <View style={styles.group1}>
-          <TouchableOpacity style={styles.menu_icon}>
+        <SafeAreaView style={styles.group1}>
+        {/* <TouchableOpacity style={styles.menu_icon} onPress={toggleModal1}></TouchableOpacity> */}
+
+
+
+
+
+
+          <TouchableOpacity style={styles.menu_icon} onPress={toggleModal}>
             <Image
               style={{ width: 40, height: 40 }}
               source={require("/assets/icons/Menu.svg")}
             />
           </TouchableOpacity>
-          <Text style={styles.headerTitle}>Calls</Text>
+          <Modal isVisible={isModalVisible} style={{ justifyContent: 'flex-end', margin: 0, height: '66%', width: '90%' }} 
+          animationIn={'slideInLeft'} animationOut={'slideOutLeft'}>
+        <View style={{ flex: 1, backgroundColor: 'white' }}>
+          {Array.isArray(userData) && userData.length > 0 && (
+          <SafeAreaView style={styles.muser}>
+            <TouchableOpacity style={styles.mbuttonUser}>
+              <Image style={{ width: 40, height: 40, borderRadius: "50%" }} source={{ uri: userData[0].avatar }}></Image>
+              <Text style={styles.mtextName}>{userData[0].firstName + " " + userData[0].lastName}</Text>
+              <Image style={{ width: 30, height: 30, marginTop: 8}} source={require('/assets/model.png')}></Image>
+              {/* <TouchableOpacity > */}
+                <Image style={{ width: 30, height: 30, marginTop: 8 , marginLeft: 40}} source={require('/assets/setting.png')}></Image>
+                {/* <Modal isVisible={isModalVisible} style={{ justifyContent: 'flex-end', margin: 0, height: '66%', width: '90%' }} 
+                  animationIn={'slideInLeft'} animationOut={'slideOutLeft'}>
+                  </Modal> */}
+
+
+
+
+
+
+
+
+              {/* </TouchableOpacity> */}
+              
+            </TouchableOpacity>
+          </SafeAreaView>
+        )}
+        <View style={styles.mbody}>
+            <View style={styles.mbody1}>
+              <Pressable style={styles.mbody1} onPress={toggleModal}>
+                <Image style={styles.micon} source={require('/assets/maket3.png')}></Image>
+                <Text style={styles.mtxt}>Đoạn chat</Text>
+              </Pressable>
+            </View>
+
+            <View style={styles.mbody1}>
+              <Pressable style={styles.mbody1}>
+                <Image style={styles.micon} source={require('/assets/maket.png')}></Image>
+                <Text style={styles.mtxt}>Maketplace</Text>
+              </Pressable>
+            </View>
+
+            <View style={styles.mbody1}>
+              <Pressable style={styles.mbody1}>
+                <Image style={styles.micon} source={require('/assets/maket1.png')}></Image>
+                <Text style={styles.mtxt}>Tin nhắn đang chờ</Text>
+              </Pressable>
+            </View>
+
+            <View style={styles.mbody1}>
+              <Pressable style={styles.mbody1}>
+                <Image style={styles.micon} source={require('/assets/maket2.png')}></Image>
+                <Text style={styles.mtxt}>Kho lưu trữ</Text>
+              </Pressable>
+            </View>
+            <View style={styles.mbtntxt1}><Text style={styles.mtxt1}>Cộng đồng</Text></View>
         </View>
+
+
+          <TouchableOpacity style={styles.mbtntxt2} onPress={toggleModal}>
+            <Text style={styles.mtxt2}>Hủy</Text>
+          </TouchableOpacity>
+        </View>
+      </Modal>
+
+
+
+
+
+
+
+          
+          <Text style={styles.headerTitle}>Calls</Text>
+        </SafeAreaView>
 
         <View style={styles.groupIconHeader}>
           <TouchableOpacity style={styles.callIcon}>
@@ -326,5 +502,140 @@ const styles = StyleSheet.create({
   },
   modalButtonText: {
     color: "#fff",
+  },
+  muser: {
+    // alignItems: "center",
+    marginTop: 50,
+  },
+  mbuttonUser: {
+    width: '90%',
+    height: 115,
+    borderRadius: 50,
+    backgroundColor: "#fff",
+    position: "absolute",
+    top: -40,
+    left: 10,
+    flexDirection: "row",
+    
+  },
+  mtextName: {
+    fontSize: 16,
+    fontWeight: "600",
+    marginTop: 10,
+    marginLeft: 10,
+    width: "90%",
+  },
+  mbody: {
+    // flex: 1,
+    backgroundColor: "#fff",
+    // alignItems: "center",
+    // justifyContent: "center",
+  },
+  mbody1: {
+    // flex: 1,
+    marginLeft: 3,
+    backgroundColor: "#fff",
+    // alignItems: "center",
+    // justifyContent: "center",
+    flexDirection: "row",
+    marginTop: 5,
+  },
+  mbtntxt1: {
+    position: 'relative',
+    width: "100%",
+    left: 10,
+    marginTop: 10,
+  },
+  mbtntxt2: {
+    position: 'relative',
+    width: "100%",
+    left: 300,
+    top : -25,
+    // marginTop: 10,
+  },
+  mtxt2: {
+    color: "#1395fc",
+    fontWeight: 600,
+    fontSize: 18,
+},
+  mtxt1: {
+    fontSize: 18,
+    fontWeight: "bold",
+    color: "#A6A6A6",
+    width: "90%",
+    textAlign: "left",
+  },
+  micon: {
+    width: 60,
+    height: 60,
+  },
+  mtxt: {
+    fontSize: 18,
+    fontWeight: "600",
+    marginTop: 10,
+    marginLeft: 15,
+  },
+  mmcontainer: { 
+    flex: 1, 
+    backgroundColor: 'white', 
+    borderRadius: 25,
+    // alignItems: 'center',
+    // justifyContent: 'center',
+  },
+  thinLine: {
+    borderWidth: 0.1,        // Độ dày của đường viền
+    borderColor: '#A4A4A4',  // Màu sắc của đường viền
+    borderStyle: 'dotted',  // Kiểu đường viền (solid, dashed, dotted)
+  },
+
+  mtext: {
+    position: 'relative', top: 50,
+    width: "100%",
+    alignItems: "left",
+    justifyContent: "left",
+    left: 20,
+    marginTop: 20,
+    fontSize: 15,
+    fontWeight: "600",
+    color: "#A6A6A6",
+  },
+  mbtntxt: {
+    color: "#1395fc",
+    fontWeight: 600,
+  },
+  mbtntxt1: {
+    color: "red",
+    fontWeight: 600,
+  },
+  mbtn: {
+    position: 'relative', 
+    top: -30,
+    width: "100%",
+    alignItems: "left",
+    justifyContent: "left",
+    marginLeft: 140,
+    marginTop: 40,
+  },
+  mbtn2: {
+    position: 'relative', 
+    top: -30,
+    width: "100%",
+    alignItems: "left",
+    justifyContent: "left",
+    marginLeft: 160,
+    marginTop: 40,
+  },
+  mbtncontainer: {
+    backgroundColor: "#F2F2F2",
+    borderRadius: 10,
+  },
+  mobtn: {
+    position: 'relative', 
+    top: -75,
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+    marginLeft: 60,
+    marginTop: 20,
   },
 });

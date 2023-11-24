@@ -21,6 +21,7 @@ function truncateText(text, limit) {
 }
 
 export default function Chats({ navigation }) {
+
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -73,6 +74,8 @@ export default function Chats({ navigation }) {
         // handle error
       });
   }, []);
+
+  
 
   return (
     <SafeAreaView style={styles.container}>
