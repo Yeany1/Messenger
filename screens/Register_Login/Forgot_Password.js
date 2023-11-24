@@ -1,65 +1,42 @@
 import {Pressable,StyleSheet,Text,View,TextInput,Image,} from "react-native";
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
-// import Header1 from "../components/Header1";
-// import Header2 from "../components/Header2";
-const Register = ({navigation}) => {
 
-    const [ten, setTen] = useState('Ngô Yến');
+const Forgot_Password = ({navigation}) => {
+    const [soDienThoai, setSoDienThoai] = useState("");
     const handleNavigate = () => {
-        if(ten.trim().length >= 2 && ten.trim().length <= 40) {
-            navigation.navigate({
-                name: "Register_Phone",
-                params: {ten},
-            })
-        } else {
-            alert('Tên phải có từ 2 đến 40 ký tự');
-        }
-    }
+        
+    };
     return (
         <View style={styles.contaiter}>
             <View style={styles.header}>
-                {/* <Header1 />
-                <Header2 /> */}
-                <Pressable style={styles.btn1} onPress={() => navigation.goBack()} >
-                    <Image style={styles.icon} source={require("../assets/left2.png")}/>
+                <Pressable style={styles.btn} onPress={() => navigation.goBack()} >
+                    <Image style={styles.icon} source={require("/assets/left2.png")}/>
                 </Pressable>
-                <Text style={styles.text1}> Đăng Ký </Text>
+                <Text style={styles.text1}> Đăng nhập </Text>
             </View>
             <View style={styles.body}>
                 <View style={styles.wraptext2}>
-                    <Text style={styles.text3}> Bạn tên gì? </Text>
-                    <Text style={styles.text2}> Nhập tên bạn sử dụng trong đời thực</Text>
+                    <Text style={styles.text3}> Tìm tài khoản </Text>
+                    <Text style={styles.text2}> Nhập số di động hoặc địa chỉ email của bạn </Text>
                     <Pressable  style={styles.btn5} onPress={handleNavigate}>
-                        <Text  style={styles.btntext2}>Tiếp </Text>
+                        <Text  style={styles.btntext2}>Tìm Tài Khoản </Text>
                     </Pressable>
                 </View>
 
                 <TextInput
                     style={styles.input1}
-                    placeholder="Họ và tên"
+                    placeholder="Số di động hoặc email"
                     placeholderTextColor="#666"
-                    // value={soDienThoai}
-                    // onChangeText={setSoDienThoai}
+                    value={soDienThoai}
+                    onChangeText={setSoDienThoai}
                 />
-            </View>
-            {/* <Pressable style={styles.wrapicon} onPress={handleNavigate}>
-                <Image
-                    style={styles.icon2}
-                    source={require("../assets/arrow-right.svg")}
-                />
-            </Pressable> */}
-            <View style={styles.bottom}>
-                <Pressable style={styles.btn} onPress={() => navigation.goBack()} >
-                    <Text style={styles.bottomtext}>Bạn đã có tài khoản ư?</Text>
-                </Pressable>
-                
             </View>
         </View>
     );
 };
 
-export default Register;
+export default Forgot_Password;
 
 const styles = StyleSheet.create({
     contaiter: {
@@ -74,7 +51,12 @@ const styles = StyleSheet.create({
         width: "100%",
     },
     header2: {},
-    
+    btn: {
+        zIndex: 1,
+        position: "absolute",
+        left: 16,
+        top: 55,
+    },
     icon: {
         width: 22,
         height: 30,
@@ -146,20 +128,14 @@ const styles = StyleSheet.create({
         borderRadius: 50,
     },
     text3: {
-        fontSize: 18,
+        fontSize: 19,
         fontWeight: "700",
-        color: "#1993f3",
+        color: "#000000",
         textAlign: "left",
         width: 157,
         height: 33,
         paddingTop: 10,
-    },
-    bottomtext: {
-        fontSize: 18,
-        letterSpacing: -0.6,
-        paddingHorizontal: 7,
-        color: "#00A2E8",
-        textAlign: "center",
+        marginBottom: 5,
     },
     btn5: {
         width: "90%",
@@ -186,31 +162,5 @@ const styles = StyleSheet.create({
         fontWeight: "700",
         color: "#fff",
         
-    },
-    bottom: {
-        position: "absolute",
-        bottom: 0,
-        width: "100%",
-        height: 100,
-        backgroundColor: "#fff",
-        justifyContent: "center",
-        alignItems: "center",
-    },
-    btn1: {
-        zIndex: 1,
-        position: "absolute",
-        left: 16,
-        top: 55,
-        alignItems: "center",
-        justifyContent: "center",
-    },
-    btn: {
-        zIndex: 1,
-        position: "absolute",
-        left: 105,
-        top: 55,
-        alignItems: "center",
-        justifyContent: "center",
-
     },
 });

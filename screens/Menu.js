@@ -222,7 +222,7 @@ const Menu = ({ navigation }) => {
             </SafeAreaView>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity style={styles.button} onPress={()=> navigation.navigate('Photo')}>
             <SafeAreaView
               style={{
                 width: 40,
@@ -289,7 +289,7 @@ const Menu = ({ navigation }) => {
               
             </SafeAreaView>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity style={styles.button} onPress={()=> navigation.navigate('Report')}>
             <SafeAreaView
               style={{
                 width: 40,

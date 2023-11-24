@@ -3,22 +3,24 @@ import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";                    
 import { createNativeStackNavigator } from "@react-navigation/native-stack";           
 import { useFonts } from "expo-font";                        
-import Login_Register from "./screens/Login_Register";               
-import Register from "./screens/Register";                  
-import Register_Phone from "./screens/Register_Phone";          
-import Login from "./screens/Login";                        
-import Forgot_Password from "./screens/Forgot_Password";  
-import TimKiem from "./screens/TimKiem";               
+import Login_Register from "./screens/Register_Login/Login_Register";               
+import Register from "./screens/Register_Login/Register";                  
+import Register_Phone from "./screens/Register_Login/Register_Phone";          
+import Login from "./screens/Register_Login/Login";                        
+import Forgot_Password from "./screens/Register_Login/Forgot_Password";  
+import TimKiem from "./screens/Menu/TimKiem";               
 import "zmp-ui/zaui.css";                          
 import Containers from './screens/Containers';                
 import { Provider } from "react-redux";               
 import { store } from "./store";            
-import GiamSat from "./screens/GiamSat";
-import Audio from "./screens/audio";
-import Light_Dark from "./screens/Light_Dark";
+import GiamSat from "./screens/Menu/GiamSat";
+import Audio from "./screens/Menu/Audio";
+import Light_Dark from "./screens/Menu/Light_Dark";
 import Order from "./screens/Order/Order";
 import Order_History from "./screens/Order/Order_History";
 import Order_Setting from "./screens/Order/Order_Setting";
+import Photo from "./screens/Menu/Photo";
+import Report from "./screens/Menu/Report";
 const App = () => {                                                         
     const [hideSplashScreen, setHideSplashScreen] = React.useState(true);                        
     const [fontsLoaded, error] = useFonts({                            
@@ -49,6 +51,8 @@ const App = () => {
                          <Stack.Screen name="Order" component={Order} options={{ headerShown: false }}/>
                          <Stack.Screen name="Order_History" component={Order_History} options={{ headerShown: false }}/>
                          <Stack.Screen name="Order_Setting" component={Order_Setting} options={{ headerShown: false }}/>
+                         <Stack.Screen name="Photo" component={Photo} options={{ headerShown: false }}/>
+                         <Stack.Screen name="Report" component={Report} options={{ headerShown: false }}/>
                      </Stack.Navigator>
                  ) : null} 
              </NavigationContainer>

@@ -2,10 +2,8 @@ import {Pressable,StyleSheet,Text,View,TextInput,Image,} from "react-native";
 import { StackActions } from '@react-navigation/native';
 import React, { useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
-// import Header1 from "../components/Header1";
-// import Header2 from "../components/Header2";
-import checkboxUnchecked from "../assets/checkbox.svg";
-import checkboxChecked from "../assets/checkbox1.svg";
+import checkboxUnchecked from "/assets/checkbox.svg";
+import checkboxChecked from "/assets/checkbox1.svg";
 const onPressButton = () => {
     navigation.navigate('Login');
   };
@@ -54,7 +52,7 @@ const Register_Phone = ({ navigation, route }) => {
                 <Header2 /> */}
                 <Pressable style={styles.btn1} onPress={() => navigation.goBack()}>
                     <View style={styles.btn11}>
-                        <Image style={styles.icon} source={require("../assets/left2.png")}/>
+                        <Image style={styles.icon} source={require("/assets/left2.png")}/>
                     </View>
                 </Pressable>
                 <Text style={styles.text1}>Tạo tài khoản</Text>
@@ -159,6 +157,7 @@ const styles = StyleSheet.create({
     },
     bottomtext: {
         fontSize: 18,
+        fontWeight: 600,
         letterSpacing: -0.6,
         paddingHorizontal: 7,
         color: "#00A2E8",
@@ -241,13 +240,14 @@ const styles = StyleSheet.create({
         height: 22,
     },
     text3: {
-        fontSize: 18,
-        fontWeight: "700",
-        color: "#1993f3",
+        fontSize: 19,
+        fontWeight: 700,
+        color: "#000000",
         textAlign: "left",
         width: "100%",
         height: 33,
         paddingTop: 10,
+        marginBottom: 5,
     },
 
     input1: {

@@ -6,7 +6,7 @@ import Phonebook from "./Phonebook";
 import Menu from "./Menu";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Icon } from "zmp-ui";
-import TimKiem from "./TimKiem";
+import TimKiem from "./Menu/TimKiem";
 const Tab = createBottomTabNavigator();
 const Containers = () => {
   return (

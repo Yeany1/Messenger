@@ -3,7 +3,7 @@ import React from 'react'
 const Login_Register = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <Image source={require('../assets/bgr22.png')} style={styles.bgr2}/>
+      <Image source={require('/assets/bgr22.png')} style={styles.bgr2}/>
       <View  style={styles.bottom}>
       <Pressable  style={styles.btn1} onPress={()=>navigation.navigate('Login')}>
         <Text  style={styles.btntext1}>ĐĂNG NHẬP </Text>
@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
     btntext1: {
         fontSize: 15,
         letterSpacing: -0.4,
-        fontWeight: "500",
+        fontWeight: 600,
         color: "#fff",
         textAlign: "center",
         width: 92,
@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
     btntext2: {
         fontSize: 15,
         letterSpacing: -0.4,
-        fontWeight: "500",
+        fontWeight: 600,
         color: "#000",
         textAlign: "center",
         width: 92,
@@ -115,9 +115,10 @@ const styles = StyleSheet.create({
     },
     bottomtextactive: {
         textDecorationLine: 'underline',
-        fontWeight: "500",
+        fontWeight: 600,
     },
     bottomtext: {
+
         fontSize: 15,
         letterSpacing: -0.6,
         paddingHorizontal: 7,

@@ -1,35 +1,39 @@
 import {Pressable,StyleSheet,Text,View,TextInput,Image,} from "react-native";
 import React, {useState} from "react";
 import { LinearGradient } from "expo-linear-gradient";
-const Light_Dark = ({navigation}) => {
+const Photo = ({navigation}) => {
     return (
         <View style={styles.contaiter}>
             <Pressable style={styles.btn} onPress={() => navigation.goBack()}>
                 <View style={styles.btn1}>
-                    <Image style={styles.icon} source={require("../assets/left222.png")}/>
-                    <Text style={styles.text}>Chế độ tối</Text>
+                    <Image style={styles.icon} source={require("/assets/left222.png")}/>
+                    <Text style={styles.text}>Ảnh & file phương tiện</Text>
                 </View>
             </Pressable>
-            <View style={styles.final}>
-                <View style={styles.body}>
-                    <Text style={styles.text1}>Đang bật</Text>
-                </View>
-                <View style={styles.body}>
-                    <Text style={styles.text1}>Tắt</Text>
-                </View>
-                <View style={styles.body}>
-                    <Text style={styles.text1}>Hệ thống</Text>
-                </View>
+            
+            <View style={styles.btntxt1}><Text style={styles.txt1}>Camera</Text></View>
+
+            <View style={styles.body}>
+                <Text style={styles.text1}>Lưu ảnh và video</Text>
             </View>
             
+            <View style={styles.btntxt2}>
+                <Text style={styles.txt2}>Tự động lưu ảnh và video bạn chụp/quay hoặc chỉnh sửa vào thiết bị
+                                            sau khi gửi.</Text>
+            </View>
+            
+            <View style={styles.btntxt1}><Text style={styles.txt1}>Liên kết</Text></View>
 
-            <View style={styles.btntxt2}><Text style={styles.txt2}>Nếu bạn chọn hệ thống, Messenger sẽ
-            tự động điều chỉnh giao diện theo phần cài đặt hệ thống trên thiết bị</Text></View>
+            <View style={styles.body}>
+                <Text style={styles.text1}>Mở bằng trình duyệt bên ngoài</Text>
+                <Text style={styles.txt2}>Liên kết đã chia sẻ trong tin nhắn sẽ mở </Text>
+                <Text style={styles.txt2}>ở bên ngoài</Text>
+            </View>
         </View>
     );
 };
 
-export default Light_Dark;
+export default Photo;
 
 const styles = StyleSheet.create({
     contaiter: {
@@ -44,16 +48,11 @@ const styles = StyleSheet.create({
         width: "100%",
     },
     header2: {},
-    final: {
-        width: "100%",
-        // marginTop: 30,
-        left: 10,
-        position: 'relative', top: 30,
-    },
+    
     icon: {
         width: 22,
         height: 30,
-        left: -20,
+        left: 20,
         backgroundColor: "#F2F2F2",
     },
     btntxt1: {
@@ -65,7 +64,7 @@ const styles = StyleSheet.create({
         marginTop: 20,
     },
     btntxt2: {
-        position: 'relative', top: 65,
+        position: 'relative', top: 50,
         width: "100%",
         alignItems: "left",
         justifyContent: "left",
@@ -75,7 +74,7 @@ const styles = StyleSheet.create({
     btn: {
         zIndex: 1,
         position: "absolute",
-        left: 40,
+        left: 0,
         top: 0,
         alignItems: "center",
         justifyContent: "center",
@@ -110,9 +109,10 @@ const styles = StyleSheet.create({
         width: "90%",
         textAlign: "left",
     },
-    body:{
-        marginTop: 30,
+    body: {
+        marginTop: 5,
         width: "95%",
+        // alignItems: "center",
         justifyContent: "center",
         borderRadius: 10,
         backgroundColor: "#fff",
@@ -125,6 +125,7 @@ const styles = StyleSheet.create({
         shadowOpacity: 0,
         shadowRadius: 0,
         elevation: 0,
+        bottom: -50,
     },
     body2: {
         marginTop: 20,
@@ -135,7 +136,7 @@ const styles = StyleSheet.create({
     },
     text1: {
         fontSize: 16,
-        // fontWeight: "bold",
+        fontWeight: 600,
         color: "#000",
     },
     text2: {

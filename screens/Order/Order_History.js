@@ -49,6 +49,7 @@ const styles = StyleSheet.create({
     text1: {
         color: "#1395fc",
         fontWeight: 600,
+        fontSize: 20,
     },
 });
 

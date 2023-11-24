@@ -1,37 +1,35 @@
 import {Pressable,StyleSheet,Text,View,TextInput,Image,} from "react-native";
 import React, {useState} from "react";
 import { LinearGradient } from "expo-linear-gradient";
-const Order = ({navigation}) => {
+const Light_Dark = ({navigation}) => {
     return (
         <View style={styles.contaiter}>
             <Pressable style={styles.btn} onPress={() => navigation.goBack()}>
                 <View style={styles.btn1}>
-                    <Image style={styles.icon1} source={require("/assets/left222.png")}/>
-                    <Text style={styles.text}>Đơn Đặt Hàng</Text>
+                    <Image style={styles.icon} source={require("/assets/left222.png")}/>
+                    <Text style={styles.text}>Chế độ tối</Text>
                 </View>
             </Pressable>
             <View style={styles.final}>
                 <View style={styles.body}>
-                    
-                    <Pressable style={styles.btn} onPress={()=> navigation.navigate('Order_History')}>
-                        <Text style={styles.text1}>Lịch sử đặt hàng</Text>
-                        <Image style={styles.icon} source={require("/assets/right.png")}/>
-                        
-                    </Pressable>
+                    <Text style={styles.text1}>Đang bật</Text>
                 </View>
                 <View style={styles.body}>
-                <Pressable style={styles.btn} onPress={()=> navigation.navigate('Order_Setting')}>
-                        <Text style={styles.text1}>Cài đặt đơn đặt hàng</Text>
-                        <Image style={styles.icon} source={require("/assets/right.png")}/>
-                        
-                    </Pressable>
+                    <Text style={styles.text1}>Tắt</Text>
+                </View>
+                <View style={styles.body}>
+                    <Text style={styles.text1}>Hệ thống</Text>
                 </View>
             </View>
+            
+
+            <View style={styles.btntxt2}><Text style={styles.txt2}>Nếu bạn chọn hệ thống, Messenger sẽ
+            tự động điều chỉnh giao diện theo phần cài đặt hệ thống trên thiết bị</Text></View>
         </View>
     );
 };
 
-export default Order;
+export default Light_Dark;
 
 const styles = StyleSheet.create({
     contaiter: {
@@ -49,20 +47,14 @@ const styles = StyleSheet.create({
     final: {
         width: "100%",
         // marginTop: 30,
-        alignItems: "center",
-        justifyContent: "center",
-    },
-    icon1: {
-        width: 20,
-        height: 20,
-        marginLeft: -100,
+        left: 10,
+        position: 'relative', top: 30,
     },
     icon: {
-        width: 35,
-        height: 35,
-        paddingTop: 20,
-        marginRight: -300,
-        top: -20,
+        width: 22,
+        height: 30,
+        left: -20,
+        backgroundColor: "#F2F2F2",
     },
     btntxt1: {
         position: 'relative', top: 50,
@@ -81,19 +73,19 @@ const styles = StyleSheet.create({
         left: 20,
     },
     btn: {
-        width: "100%",
-        // flexDirection: "row",
+        zIndex: 1,
+        position: "absolute",
+        left: 40,
+        top: 0,
         alignItems: "center",
         justifyContent: "center",
-        marginTop: 20,
-        
     },
     textblue: {
         color: "#1395fc",
         fontWeight: 600,
     },
     text: {
-        fontSize: 20,
+        fontSize: 18,
         fontWeight: "bold",
         color: "#000",
         marginLeft: 80,
@@ -118,37 +110,61 @@ const styles = StyleSheet.create({
         width: "90%",
         textAlign: "left",
     },
-    body: {
-        marginTop: 1,
+    body:{
+        marginTop: 30,
         width: "95%",
-        // alignItems: "center",
         justifyContent: "center",
         borderRadius: 10,
         backgroundColor: "#fff",
-        padding: 5,
+        padding: 20,
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
             height: 2,
-        alignItems: "center",
         },
         shadowOpacity: 0,
         shadowRadius: 0,
         elevation: 0,
-        bottom: -50,
-        flexDirection: "row",
     },
-    text1: {
-        fontSize: 18,
-        fontWeight: 600,
-        color: "#000",
-        width: "90%",
-        textAlign: "left",
+    body2: {
+        marginTop: 20,
+        width: "85%",
         alignItems: "center",
         justifyContent: "center",
+        // backgroundColor: "#fff",
+    },
+    text1: {
+        fontSize: 16,
+        fontWeight: 600,
+        color: "#000",
     },
     text2: {
         fontSize: 14,
+        color: "#000",
+    },
+    text3: {
+        fontSize: 14,
+        color: "#000",
+    },
+    body3:{
+        marginTop: 30,
+        width: "95%",
+        justifyContent: "center",
+        borderRadius: 10,
+        backgroundColor: "#fff",
+        padding: 20,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0,
+        shadowRadius: 0,
+        elevation: 0,
+    },
+    text4:{
+        width: "70%",
+        fontSize: 16,
         color: "#000",
     },
 });

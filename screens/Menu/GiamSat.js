@@ -44,25 +44,25 @@ const GiamSat = ({navigation}) => {
                 </SafeAreaView>
   
                 <SafeAreaView style={[styles.button]}>
-                    <Image style={{width:20, height:20, resizeMode: "contain"}} source={require("/assets/icons/computer-security-shield.png")}></Image>
+                    <Image style={{width:40, height:40, resizeMode: "contain"}} source={require("/assets/gs1.png")}></Image>
                     <Text style={{fontSize: 15, fontWeight: 400, marginLeft: 20}}>Bạn sẽ biết bạn bè trên Facebook
                     , người liên hệ trên Messenger, AI bé chat cùng và những người mà bé chặn</Text>
                 </SafeAreaView>
 
                 <SafeAreaView style={[styles.button]}>
-                    <Image style={{width:20, height:20, resizeMode: "contain"}} source={require("/assets/icons/computer-security-shield.png")}></Image>
+                    <Image style={{width:40, height:40, resizeMode: "contain"}} source={require("/assets/gs2.png")}></Image>
                     <Text style={{fontSize: 15, fontWeight: 400, marginLeft: 20}}>Bạn sẽ xem được
                     một số cài đặt quyền riêng tư của bé và nhận thông báo về trải nghiệm giám sát</Text>
                 </SafeAreaView>
 
                 <SafeAreaView style={[styles.button]}>
-                    <Image style={{width:20, height:20, resizeMode: "contain"}} source={require("/assets/icons/computer-security-shield.png")}></Image>
+                    <Image style={{width:40, height:40, resizeMode: "contain"}} source={require("/assets/gs3.png")}></Image>
                     <Text style={{fontSize: 15, fontWeight: 400, marginLeft: 20}}>Bạn sẽ biết bé dành bao nhiêu
                     thời gian trên mỗi ứng dụng và có thể đặt lịch giải lao</Text>
                 </SafeAreaView>
 
                 <SafeAreaView style={[styles.button]}>
-                    <Image style={{width:20, height:20, resizeMode: "contain"}} source={require("/assets/icons/computer-security-shield.png")}></Image>
+                    <Image style={{width:40, height:40, resizeMode: "contain"}} source={require("/assets/gs4.png")}></Image>
                     <Text style={{fontSize: 15, fontWeight: 400, marginLeft: 20}}>Bạn không thể xem đoạn chat, những 
                     gì bé tìm kiếm hoặc nội dung không dành cho mình</Text>
                 </SafeAreaView>
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
     container: {
       height: "100%",
       flex: 1,
-      backgroundColor: "#fff",
+      backgroundColor: "#F9F3F9",
       marginLeft: 10,
     },
     back: {

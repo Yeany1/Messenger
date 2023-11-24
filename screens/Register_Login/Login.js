@@ -4,7 +4,7 @@ import { LinearGradient } from "expo-linear-gradient";
 // import Header1 from "../components/Header1";
 // import Header2 from "../components/Header2";
 import { useDispatch } from "react-redux";
-import { userLogin } from "../features/users/usersSlice";
+import { userLogin } from "../../features/users/usersSlice";
 
 const Login = ({navigation, route}) => {
     const [taiKhoan, setTaiKhoan] = useState(route.params?.soDienThoai || "0559023868");
@@ -38,12 +38,12 @@ const Login = ({navigation, route}) => {
                 <Pressable style={styles.btn} onPress={() => navigation.goBack()}>
                     <View style={styles.btn11}>
                         
-                        <Image style={styles.icon} source={require("../assets/left2.png")}/>
+                        <Image style={styles.icon} source={require("/assets/left2.png")}/>
                         {/* <Text style={styles.text11}>Quay lại</Text> */}
                     </View>
                     
                 </Pressable>
-                <Image source={require('../assets/bgr22.png')} style={styles.bgr2}/>
+                <Image source={require('/assets/bgr22.png')} style={styles.bgr2}/>
               
             {/* </View> */}
             <View style={styles.body}>
@@ -200,6 +200,7 @@ const styles = StyleSheet.create({
     },
     bottomtext: {
         fontSize: 15,
+        fontWeight: "600",
         letterSpacing: -0.6,
         paddingHorizontal: 7,
         color: "#00A2E8",
