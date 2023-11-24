@@ -32,6 +32,7 @@ import Search from "./screens/Search";
 import Profile_Screen from "./screens/Profile_Screen";
 import Call_Screen from "./screens/Call_Screen";
 import AddGoup_Screen from "./screens/AddGoup_Screen";
+import YourStory from "./screens/YourStory";
 const App = () => {                                                         
     const [hideSplashScreen, setHideSplashScreen] = React.useState(true);                        
     const [fontsLoaded, error] = useFonts({                            
@@ -48,7 +49,9 @@ const App = () => {
          <Provider store={store}>
              <NavigationContainer>
                  {hideSplashScreen ? (
-                     <Stack.Navigator screenOptions={{ headerShown: false }}>
+                     <Stack.Navigator screenOptions={{ headerShown: false }}
+                        initialRouteName="YourStory"
+                     >
                          <Stack.Screen name="Login_Register" component={Login_Register} options={{ headerShown: false }}/>
                          <Stack.Screen name="Login" component={Login} options={{ headerShown: false }}/>
                          <Stack.Screen name="Forgot_Password" component={Forgot_Password} options={{ headerShown: false }}/>
@@ -75,6 +78,7 @@ const App = () => {
                          <Stack.Screen name="Profile_Screen" component={Profile_Screen} options={{ headerShown: false }}/>
                          <Stack.Screen name="Call_Screen" component={Call_Screen} options={{ headerShown: false }}/>
                          <Stack.Screen name="AddGoup_Screen" component={AddGoup_Screen} options={{ headerShown: false }}/>
+                            <Stack.Screen name="YourStory" component={YourStory} options={{ headerShown: false }}/>
                      </Stack.Navigator>
                  ) : null} 
              </NavigationContainer>

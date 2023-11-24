@@ -48,8 +48,24 @@ export default function Phonebook({ navigation }) {
 
   return (
     <SafeAreaView style={styles.container}>
-      <SafeAreaView style={styles.containerHeader}>
-        <Text style={styles.search}>Danh bạ</Text>
+       <SafeAreaView style={styles.containerHeader}>
+        <SafeAreaView style={styles.group1}>
+          <TouchableOpacity>
+            <Image
+              style={{ width: 40, height: 40 }}
+              source={require("/assets/icons/Menu.svg")}
+            />
+          </TouchableOpacity>
+          <Text style={styles.headerTitle}>Danh bạ</Text>
+        </SafeAreaView>
+        <TouchableOpacity
+          style={styles.newchat_icon}
+        >
+          <Image
+            style={{ width: 20, height: 20 }}
+            source={require("/assets/icons/phone-book.png")}
+          />
+        </TouchableOpacity>
       </SafeAreaView>
 
       <SafeAreaView style={styles.containerSearch}>
@@ -110,6 +126,38 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
   },
 
+
+  containerHeader: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginHorizontal: 15,
+    marginTop: 13,
+    backgroundColor: "#fff",
+    marginBottom: 25,
+  },
+
+  group1: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+
+  headerTitle: {
+    fontFamily: "SF Pro Display",
+    fontWeight: 700,
+    fontstyle: "normal",
+    fontSize: 30,
+    marginLeft: 10,
+  },
+
+  newchat_icon: {
+    backgroundColor: "#fff",
+    borderRadius: 50,
+    width: 40,
+    height: 40,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+
   search: {
     height: 50,
     outlineStyle: "none",
@@ -121,16 +169,6 @@ const styles = StyleSheet.create({
     top: 10,
     marginLeft: 140,
 
-  },
-
-  containerHeader: {
-    marginTop: 10,
-    flexDirection: "row",
-    alignItems: "center",
-    width: "100%",
-    borderBottomColor: "rgba(0,0,0,0.1)",
-    borderBottomWidth: 1,
-    height: 60,
   },
 
   back: {
