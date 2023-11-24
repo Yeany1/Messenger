@@ -12,6 +12,12 @@ import {
   FlatList,
 } from "react-native";
 
+import {
+  pangestureHandler,
+  GestureHandlerRootView,
+  State,
+} from "react-native-gesture-handler";
+
 export default function Chats({ navigation }) {
   const [data, setData] = useState([]);
   const [selectedItem, setSelectedItem] = useState(null);
@@ -51,7 +57,7 @@ export default function Chats({ navigation }) {
   const randomTime = getRandomTime();
 
   const handleDeleteItem = () => {
-    const newData = data.filter(item => item.id !== selectedItem.id);
+    const newData = data.filter((item) => item.id !== selectedItem.id);
     setData(newData);
     setSelectedItem(null); // Đóng modal sau khi xóa
   };
@@ -70,12 +76,12 @@ export default function Chats({ navigation }) {
       onLongPress={() => setSelectedItem(item)}
     >
       <Image style={styles.imgUser} source={{ uri: item.avatar }} />
-      <View style={styles.userStatus}>
+      <SafeAreaView style={styles.userStatus}>
         <Text style={styles.textName}>
           {item.firstName + " " + item.lastName}
         </Text>
         <Text style={styles.statusCall}>Outgoing {randomTime} PM</Text>
-      </View>
+      </SafeAreaView>
       <TouchableOpacity
         style={styles.buttonCallOption}
         onPress={() =>
@@ -87,7 +93,7 @@ export default function Chats({ navigation }) {
           })
         }
       >
-        <View
+        <SafeAreaView
           style={{
             width: 34,
             height: 34,
@@ -101,7 +107,7 @@ export default function Chats({ navigation }) {
             style={{ width: 15, height: 15, resizeMode: "contain" }}
             source={require("/assets/icons/Call.svg")}
           />
-        </View>
+        </SafeAreaView>
       </TouchableOpacity>
     </TouchableOpacity>
   );
@@ -141,7 +147,6 @@ export default function Chats({ navigation }) {
           </TouchableOpacity>
         </View>
       </SafeAreaView>
-
       <ScrollView
         style={{
           height: "84.3vh",
@@ -188,12 +193,12 @@ export default function Chats({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-    container: {
+  container: {
     flex: 1,
     backgroundColor: "#F5F5F5",
-    },
-    
-    containerHeader: {
+  },
+
+  containerHeader: {
     height: 80,
     width: "100%",
     backgroundColor: "#fff",
@@ -202,124 +207,124 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderBottomWidth: 1,
     borderBottomColor: "#EFEFEF",
-    },
-    
-    group1: {
+  },
+
+  group1: {
     flexDirection: "row",
     alignItems: "center",
     marginLeft: 25,
-    },
-    
-    menu_icon: {
+  },
+
+  menu_icon: {
     marginRight: 20,
-    },
-    
-    headerTitle: {
+  },
+
+  headerTitle: {
     fontSize: 30,
     fontWeight: "bold",
     color: "#000",
-    },
-    
-    iconOval: {
+  },
+
+  iconOval: {
     width: 40,
     height: 40,
     backgroundColor: "rgba(0,0,0,0.1)",
     borderRadius: 50,
     justifyContent: "center",
     alignItems: "center",
-    },
-    
-    callIcon: {
+  },
+
+  callIcon: {
     marginRight: 15,
-    },
-    
-    groupIconHeader: {
+  },
+
+  groupIconHeader: {
     flexDirection: "row",
     alignItems: "center",
-    },
-    
-    textRecent: {
+  },
+
+  textRecent: {
     fontFamily: "SF Pro Text",
     fontSize: 15,
     fontStyle: "normal",
     fontWeight: "600",
     color: "rgba(0,0,0,0.40)",
     paddingBottom: 10,
-    },
-    
-    chatUser: {
+  },
+
+  chatUser: {
     flexDirection: "row",
     alignItems: "center",
     marginTop: 15,
-    },
-    
-    imgUser: {
+  },
+
+  imgUser: {
     width: 40,
     height: 40,
     borderRadius: 50,
-    },
-    
-    userStatus: {
+  },
+
+  userStatus: {
     marginLeft: 15,
-    },
-    
-    textName: {
+  },
+
+  textName: {
     fontFamily: "SF Pro Text",
     fontSize: 17,
     fontStyle: "normal",
     fontWeight: "600",
     color: "#000",
-    },
-    
-    statusCall: {
+  },
+
+  statusCall: {
     fontFamily: "SF Pro Text",
     fontSize: 15,
     fontStyle: "normal",
     fontWeight: "400",
     color: "rgba(0,0,0,0.40)",
-    },
-    
-    buttonCallOption: {
+  },
+
+  buttonCallOption: {
     flex: 1,
     alignItems: "flex-end",
     marginRight: 45,
-    },
-    
-    //Modal
-    
-    modalContainer: {
-        flex: 1,
-        alignItems: "center",
-        justifyContent: "center",
-        backgroundColor: "rgba(0, 0, 0, 0.5)",
-      },
-      modalContent: {
-        backgroundColor: "#fff",
-        padding: 20,
-        borderRadius: 10,
-        elevation: 5,
-      },
-      modalText: {
-        fontSize: 16,
-        marginBottom: 10,
-      },
-      modalButtons: {
-        flexDirection: "row",
-        justifyContent: "flex-end",
-      },
-      modalButton: {
-        paddingHorizontal: 10,
-        paddingVertical: 5,
-        marginLeft: 10,
-        borderRadius: 5,
-      },
-      modalButtonCancel: {
-        backgroundColor: "#ccc",
-      },
-      modalButtonDelete: {
-        backgroundColor: "#f00",
-      },
-      modalButtonText: {
-        color: "#fff",
-      },
+  },
+
+  //Modal
+
+  modalContainer: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+  },
+  modalContent: {
+    backgroundColor: "#fff",
+    padding: 20,
+    borderRadius: 10,
+    elevation: 5,
+  },
+  modalText: {
+    fontSize: 16,
+    marginBottom: 10,
+  },
+  modalButtons: {
+    flexDirection: "row",
+    justifyContent: "flex-end",
+  },
+  modalButton: {
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    marginLeft: 10,
+    borderRadius: 5,
+  },
+  modalButtonCancel: {
+    backgroundColor: "#ccc",
+  },
+  modalButtonDelete: {
+    backgroundColor: "#f00",
+  },
+  modalButtonText: {
+    color: "#fff",
+  },
 });

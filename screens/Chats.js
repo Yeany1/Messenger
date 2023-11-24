@@ -13,8 +13,7 @@ import {
 } from "react-native";
 import { useEffect, useState } from "react";
 import { FlatList, ScrollView } from "react-native";
-import { PanGestureHandler } from "react-native-gesture-handler";
-import { GestureHandlerRootView } from "react-native-gesture-handler";
+
 // import { useNavigation } from "@react-navigation/native";
 
 function truncateText(text, limit) {
@@ -47,103 +46,73 @@ export default function Chats({ navigation }) {
         // handle error
       });
   }, []);
-
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
-      <SafeAreaView style={styles.container}>
-        <SafeAreaView style={styles.containerHeader}>
-          <SafeAreaView style={styles.group1}>
-            <TouchableOpacity style={styles.menu_icon}>
-              <Image
-                style={{ width: 40, height: 40 }}
-                source={require("/assets/icons/Menu.svg")}
-              />
-            </TouchableOpacity>
-            <Text style={styles.headerTitle}>Chats</Text>
-          </SafeAreaView>
-          <TouchableOpacity
-            style={styles.newchat_icon}
-            onPress={() =>
-              navigation.navigate("AddGoup_Screen", {
-                data: data,
-              })
-            }
-          >
+    <SafeAreaView style={styles.container}>
+      <SafeAreaView style={styles.containerHeader}>
+        <SafeAreaView style={styles.group1}>
+          <TouchableOpacity style={styles.menu_icon}>
             <Image
               style={{ width: 40, height: 40 }}
-              source={require("/assets/icons/New Message.svg")}
+              source={require("/assets/icons/Menu.svg")}
             />
           </TouchableOpacity>
+          <Text style={styles.headerTitle}>Chats</Text>
         </SafeAreaView>
-        <PanGestureHandler>
-          <ScrollView style={{ height: "84.3vh", width: "100%" }}>
-            <TouchableOpacity
-              style={styles.searchBar}
-              onPress={() =>
-                navigation.navigate("Search", {
-                  data: data,
-                })
-              }
-            >
+        <TouchableOpacity
+          style={styles.newchat_icon}
+          onPress={() =>
+            navigation.navigate("AddGoup_Screen", {
+              data: data,
+            })
+          }
+        >
+          <Image
+            style={{ width: 40, height: 40 }}
+            source={require("/assets/icons/New Message.svg")}
+          />
+        </TouchableOpacity>
+      </SafeAreaView>
+      <ScrollView style={{ height: "84.3vh", width: "100%" }}>
+        <TouchableOpacity
+          style={styles.searchBar}
+          onPress={() =>
+            navigation.navigate("Search", {
+              data: data,
+            })
+          }
+        >
+          <Image
+            style={{ width: 16, height: 16 }}
+            source={require("/assets/icons/search-icon.svg")}
+          ></Image>
+          <Text style={styles.searchInput}>Search</Text>
+        </TouchableOpacity>
+
+        <ScrollView
+          pagingEnabled={true}
+          horizontal={true}
+          showsHorizontalScrollIndicator={false}
+          style={{ flexDirection: "row" }}
+        >
+          <TouchableOpacity style={styles.yourStory}>
+            <SafeAreaView style={styles.oval}>
               <Image
-                style={{ width: 16, height: 16 }}
-                source={require("/assets/icons/search-icon.svg")}
+                style={{ width: 20, height: 20, borderRadius: 50 }}
+                source={require("/assets/icons/cross.svg")}
               ></Image>
-              <Text style={styles.searchInput}>Search</Text>
-            </TouchableOpacity>
+            </SafeAreaView>
 
-            <ScrollView
-              pagingEnabled={true}
-              horizontal={true}
-              showsHorizontalScrollIndicator={false}
-              style={{ flexDirection: "row" }}
-            >
-              <TouchableOpacity style={styles.yourStory}>
-                <SafeAreaView style={styles.oval}>
-                  <Image
-                    style={{ width: 20, height: 20, borderRadius: 50 }}
-                    source={require("/assets/icons/cross.svg")}
-                  ></Image>
-                </SafeAreaView>
+            <Text style={[styles.textNameStory]}>Your Story</Text>
+          </TouchableOpacity>
 
-                <Text style={[styles.textNameStory]}>Your Story</Text>
-              </TouchableOpacity>
-
-              <FlatList
-                data={data}
-                horizontal={true}
-                keyExtractor={(item) => item.id.toString()}
-                renderItem={({ item }) => (
-                  <SafeAreaView>
-                    <TouchableOpacity
-                      style={styles.userChat}
-                      onPress={() =>
-                        navigation.navigate("UserChat", {
-                          id: item.id,
-                          firstName: item.firstName,
-                          lastName: item.lastName,
-                          avatar: item.avatar,
-                        })
-                      }
-                    >
-                      <Image
-                        style={{ width: 65, height: 65, borderRadius: 50 }}
-                        source={{ uri: item.avatar }}
-                      ></Image>
-                      <Text style={[styles.textNameStory]}>
-                        {item.lastName}
-                      </Text>
-                    </TouchableOpacity>
-                  </SafeAreaView>
-                )}
-              />
-            </ScrollView>
-            <FlatList
-              data={data}
-              keyExtractor={(item) => item.id.toString()}
-              renderItem={({ item }) => (
+          <FlatList
+            data={data}
+            horizontal={true}
+            keyExtractor={(item) => item.id.toString()}
+            renderItem={({ item }) => (
+              <SafeAreaView>
                 <TouchableOpacity
-                  style={styles.chatUser}
+                  style={styles.userChat}
                   onPress={() =>
                     navigation.navigate("UserChat", {
                       id: item.id,
@@ -153,30 +122,53 @@ export default function Chats({ navigation }) {
                     })
                   }
                 >
-                  {item.avatar && (
-                    <Image
-                      style={{ width: 65, height: 65, borderRadius: 50 }}
-                      source={{ uri: item.avatar }}
-                    />
-                  )}
-                  <SafeAreaView style={styles.group2}>
-                    <Text style={[styles.textNameChatUser]}>
-                      {item.firstName + " " + item.lastName}
-                    </Text>
-                    <SafeAreaView style={styles.groupChat}>
-                      <Text style={styles.textMessage}>
-                        {truncateText(item.messege, 30)}
-                      </Text>
-                      <Text style={styles.textDate}>{item.date}</Text>
-                    </SafeAreaView>
-                  </SafeAreaView>
+                  <Image
+                    style={{ width: 65, height: 65, borderRadius: 50 }}
+                    source={{ uri: item.avatar }}
+                  ></Image>
+                  <Text style={[styles.textNameStory]}>{item.lastName}</Text>
                 </TouchableOpacity>
+              </SafeAreaView>
+            )}
+          />
+        </ScrollView>
+        <FlatList
+          data={data}
+          keyExtractor={(item) => item.id.toString()}
+          renderItem={({ item }) => (
+            <TouchableOpacity
+              style={styles.chatUser}
+              onPress={() =>
+                navigation.navigate("UserChat", {
+                  id: item.id,
+                  firstName: item.firstName,
+                  lastName: item.lastName,
+                  avatar: item.avatar,
+                })
+              }
+            >
+              {item.avatar && (
+                <Image
+                  style={{ width: 65, height: 65, borderRadius: 50 }}
+                  source={{ uri: item.avatar }}
+                />
               )}
-            />
-          </ScrollView>
-        </PanGestureHandler>
-      </SafeAreaView>
-    </GestureHandlerRootView>
+              <SafeAreaView style={styles.group2}>
+                <Text style={[styles.textNameChatUser]}>
+                  {item.firstName + " " + item.lastName}
+                </Text>
+                <SafeAreaView style={styles.groupChat}>
+                  <Text style={styles.textMessage}>
+                    {truncateText(item.messege, 30)}
+                  </Text>
+                  <Text style={styles.textDate}>{item.date}</Text>
+                </SafeAreaView>
+              </SafeAreaView>
+            </TouchableOpacity>
+          )}
+        />
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 
