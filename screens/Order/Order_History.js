@@ -44,12 +44,12 @@ const styles = StyleSheet.create({
         color: "#000",
         fontWeight: 600,
         left: 100,
-        fontSize: 25,
+        fontSize: 20,
     },
     text1: {
         color: "#1395fc",
         fontWeight: 600,
-        fontSize: 20,
+        fontSize: 18,
     },
 });
 

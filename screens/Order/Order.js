@@ -119,13 +119,11 @@ const styles = StyleSheet.create({
         textAlign: "left",
     },
     body: {
-        marginTop: 1,
+        marginTop: 2,
         width: "95%",
-        // alignItems: "center",
         justifyContent: "center",
         borderRadius: 10,
         backgroundColor: "#fff",
-        padding: 5,
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
@@ -135,7 +133,7 @@ const styles = StyleSheet.create({
         shadowOpacity: 0,
         shadowRadius: 0,
         elevation: 0,
-        bottom: -50,
+        bottom: -30,
         flexDirection: "row",
     },
     text1: {

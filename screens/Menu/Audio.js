@@ -63,8 +63,8 @@ const styles = StyleSheet.create({
     header2: {},
     
     icon: {
-        width: 22,
-        height: 30,
+        width: 18,
+        height: 22,
         left: 20,
         backgroundColor: "#F2F2F2",
     },

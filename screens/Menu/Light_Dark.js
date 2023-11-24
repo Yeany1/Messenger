@@ -51,8 +51,8 @@ const styles = StyleSheet.create({
         position: 'relative', top: 30,
     },
     icon: {
-        width: 22,
-        height: 30,
+        width: 16,
+        height: 20,
         left: -20,
         backgroundColor: "#F2F2F2",
     },
@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
         textAlign: "left",
     },
     body:{
-        marginTop: 30,
+        // marginTop: 30,
         width: "95%",
         justifyContent: "center",
         borderRadius: 10,
@@ -125,6 +125,8 @@ const styles = StyleSheet.create({
         shadowOpacity: 0,
         shadowRadius: 0,
         elevation: 0,
+        top: 40,
+        marginTop: 2,
     },
     body2: {
         marginTop: 20,

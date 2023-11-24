@@ -16,7 +16,7 @@ const GiamSat = ({navigation}) => {
                 <SafeAreaView style={styles.buttonMeta}>
                     <TouchableOpacity onPress={() => navigation.goBack()}>
                         <SafeAreaView>
-                        <Image style={{width: 20, height: 20, marginBottom: 8}} source={require("/assets/left22.png")}/>
+                        <Image style={{width: 20, height: 20, marginBottom: 8}} source={require("/assets/x2.png")}/>
                         </SafeAreaView>
                     </TouchableOpacity>
                     

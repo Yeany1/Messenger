@@ -40,8 +40,8 @@ const styles = StyleSheet.create({
     header2: {},
     
     icon: {
-        width: 22,
-        height: 30,
+        width: 18,
+        height: 25,
         left: 20,
         backgroundColor: "#F2F2F2",
     },
@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
     },
     text1: {
         fontSize: 16,
-        // fontWeight: "bold",
+        fontWeight: 600,
         color: "#000",
     },
     text2: {
