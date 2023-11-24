@@ -1,7 +1,22 @@
-import {Pressable,StyleSheet,Text,View,TextInput,Image,} from "react-native";
-import React, {useState} from "react";
+import {Pressable,StyleSheet,Text,View,TextInput,Image, Switch} from "react-native";
+import React, {useState, useEffect} from "react";
 import { LinearGradient } from "expo-linear-gradient";
 const Report = ({navigation}) => {
+    const [isEnabled1, setIsEnabled1] = useState(
+        localStorage.getItem('switch1') === 'true'
+      );
+    const toggleSwitch1 = () => {
+            const newValue = !isEnabled1;
+            setIsEnabled1(newValue);
+            localStorage.setItem('switch1', newValue.toString());
+        };
+    useEffect(() => {
+        // Khôi phục giá trị từ localStorage khi trang web được tải lại
+        const savedSwitch1 = localStorage.getItem('switch1');
+        if (savedSwitch1) {
+          setIsEnabled1(savedSwitch1 === 'true');
+        }
+}, []);
     return (
         <View style={styles.contaiter}>
             <Pressable style={styles.btn} onPress={() => navigation.goBack()}>
@@ -20,6 +35,14 @@ const Report = ({navigation}) => {
             
             <View style={styles.body}>
                 <Text style={styles.text1}>Lắc thiết bị để báo cáo sự cố</Text>
+                <Switch
+                        style={styles.switch}
+                        trackColor={{ false: '#767577', true: '#81b0ff' }}
+                        thumbColor={isEnabled1 ? '#f5dd4b' : '#f4f3f4'}
+                        ios_backgroundColor="#3e3e3e"
+                        onValueChange={toggleSwitch1}
+                        value={isEnabled1}
+                    />
             </View>
 
             <Pressable  style={styles.btn11} onPress={() => navigation.goBack()}>
@@ -46,6 +69,11 @@ const styles = StyleSheet.create({
         backgroundColor: "#fff",
         width: "100%",
         overflow: "hidden",
+    },
+    switch: {
+        position: "absolute",
+        left: 310,
+        // top: 50,
     },
     header: {
         width: "100%",

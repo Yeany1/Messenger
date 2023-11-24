@@ -1,12 +1,69 @@
-import {Pressable,StyleSheet,Text,View,TextInput,Image,} from "react-native";
-import React, {useState} from "react";
+import {Pressable,StyleSheet,Text,View,TextInput,Image,Switch} from "react-native";
+import React, {useState, useEffect} from "react";
 import { LinearGradient } from "expo-linear-gradient";
 import { StatusBar } from "expo-status-bar";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/native-stack";
-import { useEffect} from "react";
 import { FlatList, ScrollView } from "react-native";
 const Privacy = ({navigation}) => {
+    const [isEnabled1, setIsEnabled1] = useState(
+        localStorage.getItem('switch1') === 'true'
+      );
+      const [isEnabled2, setIsEnabled2] = useState(
+        localStorage.getItem('switch2') === 'true'
+      );
+      const [isEnabled3, setIsEnabled3] = useState(
+        localStorage.getItem('switch3') === 'true'
+      );
+
+      const [isEnabled4, setIsEnabled4] = useState(
+        localStorage.getItem('switch4') === 'true'
+      );
+    
+      const toggleSwitch1 = () => {
+        const newValue = !isEnabled1;
+        setIsEnabled1(newValue);
+        localStorage.setItem('switch1', newValue.toString());
+      };
+    
+      const toggleSwitch2 = () => {
+        const newValue = !isEnabled2;
+        setIsEnabled2(newValue);
+        localStorage.setItem('switch2', newValue.toString());
+      };
+    
+      const toggleSwitch3 = () => {
+        const newValue = !isEnabled3;
+        setIsEnabled3(newValue);
+        localStorage.setItem('switch3', newValue.toString());
+      };
+      const toggleSwitch4 = () => {
+        const newValue = !isEnabled4;
+        setIsEnabled4(newValue);
+        localStorage.setItem('switch4', newValue.toString());
+      };
+    
+      useEffect(() => {
+        // Khôi phục giá trị từ localStorage khi trang web được tải lại
+        const savedSwitch1 = localStorage.getItem('switch1');
+        if (savedSwitch1) {
+          setIsEnabled1(savedSwitch1 === 'true');
+        }
+    
+        const savedSwitch2 = localStorage.getItem('switch2');
+        if (savedSwitch2) {
+          setIsEnabled2(savedSwitch2 === 'true');
+        }
+        const savedSwitch4 = localStorage.getItem('switch4');
+        if (savedSwitch4) {
+          setIsEnabled2(savedSwitch4 === 'true');
+        }
+    
+        const savedSwitch3 = localStorage.getItem('switch3');
+        if (savedSwitch3) {
+          setIsEnabled3(savedSwitch3 === 'true');
+        }
+      }, []);
     return (
         <View style={styles.contaiter}>
             <ScrollView style={{height: "92vh"}}>
@@ -21,22 +78,54 @@ const Privacy = ({navigation}) => {
                 <View style={styles.body}>
                     <Text style={styles.text1}>Người liên hệ đã ẩn </Text>
                     <Text>Ẩn người khác khỏi người liên hệ gợi ý</Text>
+                    <Switch
+                        style={styles.switch}
+                        trackColor={{ false: '#767577', true: '#81b0ff' }}
+                        thumbColor={isEnabled1 ? '#f5dd4b' : '#f4f3f4'}
+                        ios_backgroundColor="#3e3e3e"
+                        onValueChange={toggleSwitch1}
+                        value={isEnabled1}
+                    />
                 </View>
                 
                 <View style={styles.btntxt1}><Text style={styles.txt1}>Bảo mật </Text></View>
                 <View style={styles.body}>
                     <Text style={styles.text1}>Khóa ứng dụng</Text>
                     <Text>Cần có FaceID hoặc mã khóa</Text>
+                    <Switch
+                        style={styles.switch}
+                        trackColor={{ false: '#767577', true: '#81b0ff' }}
+                        thumbColor={isEnabled1 ? '#f5dd4b' : '#f4f3f4'}
+                        ios_backgroundColor="#3e3e3e"
+                        onValueChange={toggleSwitch2}
+                        value={isEnabled2}
+                    />
                 </View>
                 <View style={styles.body}>
                     <Text style={styles.text1}>Đoạn chat mã hóa đầu cuối</Text>
                     <Text>Quản lý chế độ cài đặt dành cho các đoạn</Text>
                     <Text>chat được mã hóa đầu cuối</Text>
+                    <Switch
+                        style={styles.switch}
+                        trackColor={{ false: '#767577', true: '#81b0ff' }}
+                        thumbColor={isEnabled1 ? '#f5dd4b' : '#f4f3f4'}
+                        ios_backgroundColor="#3e3e3e"
+                        onValueChange={toggleSwitch3}
+                        value={isEnabled3}
+                    />
                 </View>
                 <View style={styles.body}>
                     <Text style={styles.text1}>Lướt xem trang web an toàn</Text>
                     <Text>Bật cảnh cáo về các liên kết có thể không</Text>
                     <Text>an toàn</Text>
+                    <Switch
+                        style={styles.switch}
+                        trackColor={{ false: '#767577', true: '#81b0ff' }}
+                        thumbColor={isEnabled1 ? '#f5dd4b' : '#f4f3f4'}
+                        ios_backgroundColor="#3e3e3e"
+                        onValueChange={toggleSwitch4}
+                        value={isEnabled4}
+                    />
                 </View>
 
                 <View style={styles.btntxt1}><Text style={styles.txt1}>Ai có thể liên hệ với bạn</Text></View>
@@ -85,6 +174,11 @@ const styles = StyleSheet.create({
         // backgroundColor: "#fff",
         width: "100%",
         overflow: "hidden",
+    },
+    switch: {
+        position: "absolute",
+        left: 310,
+        // top: 50,
     },
     header: {
         width: "100%",

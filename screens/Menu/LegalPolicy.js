@@ -1,5 +1,5 @@
-import {Pressable,StyleSheet,Text,View,TextInput,Image,} from "react-native";
-import React, {useState} from "react";
+import {Pressable,StyleSheet,Text,View,TextInput,Image, Switch} from "react-native";
+import React, {useState, useEffect} from "react";
 import { LinearGradient } from "expo-linear-gradient";
 const LegalPolicy = ({navigation}) => {
     return (
@@ -170,6 +170,11 @@ const styles = StyleSheet.create({
         width: "70%",
         fontSize: 16,
         color: "#000",
+    },
+    switch: {
+        position: "absolute",
+        left: 310,
+        // top: 50,
     },
 });
 
