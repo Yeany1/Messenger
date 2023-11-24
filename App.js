@@ -26,12 +26,12 @@ import Privacy from "./screens/Menu/Privacy";
 import LegalPolicy from "./screens/Menu/LegalPolicy";
 import List_Call from "./screens/List_Call";
 import Chats from "./screens/Chats";
-// import UserChat from "./screens/Chats/UserChat";
-// import VideoCall_Screen from "./screens/Chats/VideoCall_Screen";
-// import Search from "./screens/Chats/Search";
-// import Profile_Screen from "./screens/Chats/Profile_Screen";
-// import Call_Screen from "./screens/Chats/Call_Screen";
-// import AddGoup_Screen from "./screens/Chats/AddGoup_Screen";
+import UserChat from "./screens/UserChat";
+import VideoCall_Screen from "./screens/VideoCall_Screen";
+import Search from "./screens/Search";
+import Profile_Screen from "./screens/Profile_Screen";
+import Call_Screen from "./screens/Call_Screen";
+import AddGoup_Screen from "./screens/AddGoup_Screen";
 const App = () => {                                                         
     const [hideSplashScreen, setHideSplashScreen] = React.useState(true);                        
     const [fontsLoaded, error] = useFonts({                            
@@ -69,12 +69,12 @@ const App = () => {
                          <Stack.Screen name="LegalPolicy" component={LegalPolicy} options={{ headerShown: false }}/>
                          <Stack.Screen name="List_Call" component={List_Call} options={{ headerShown: false }}/>
                          <Stack.Screen name="Chats" component={Chats} options={{ headerShown: false }}/>
-                         {/* <Stack.Screen name="UserChat" component={UserChat} options={{ headerShown: false }}/>
+                         <Stack.Screen name="UserChat" component={UserChat} options={{ headerShown: false }}/>
                          <Stack.Screen name="VideoCall_Screen" component={VideoCall_Screen} options={{ headerShown: false }}/>
                          <Stack.Screen name="Search" component={Search} options={{ headerShown: false }}/>
                          <Stack.Screen name="Profile_Screen" component={Profile_Screen} options={{ headerShown: false }}/>
                          <Stack.Screen name="Call_Screen" component={Call_Screen} options={{ headerShown: false }}/>
-                         <Stack.Screen name="AddGoup_Screen" component={AddGoup_Screen} options={{ headerShown: false }}/> */}
+                         <Stack.Screen name="AddGoup_Screen" component={AddGoup_Screen} options={{ headerShown: false }}/>
                      </Stack.Navigator>
                  ) : null} 
              </NavigationContainer>

@@ -45,7 +45,7 @@ export default function UserChat({ navigation, route }) {
       <SafeAreaView style={styles.containerHeader}>
         <SafeAreaView style={styles.group1}>
           <SafeAreaView style={styles.back}>
-            <TouchableOpacity onPress={() => navigation.navigate("Chats")}>
+            <TouchableOpacity onPress={() => navigation.navigate("Containers")}>
               <Image
                 style={{ width: 25, height: 25 }}
                 source={require("/assets/icons/back.png")}

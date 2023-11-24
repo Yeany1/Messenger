@@ -1,7 +1,71 @@
-import {Pressable,StyleSheet,Text,View,TextInput,Image,} from "react-native";
-import React, {useState} from "react";
+import {Pressable,StyleSheet,Text,View,TextInput,Image,Switch} from "react-native";
+import React, {useState, useEffect} from "react";
 import { LinearGradient } from "expo-linear-gradient";
 const Light_Dark = ({navigation}) => {
+    const [isEnabled, setIsEnabled] = useState(false);
+    // const toggleSwitch1 = () => setIsEnabled(previousState => !previousState);
+    // const toggleSwitch2 = () => setIsEnabled(previousState => !previousState);
+    // const toggleSwitch3 = () => setIsEnabled(previousState => !previousState);
+    // const [isEnabled1, setIsEnabled1] = useState(false);
+    // const [isEnabled2, setIsEnabled2] = useState(false);
+    // const [isEnabled3, setIsEnabled3] = useState(false);
+  
+    // const toggleSwitch1 = () => {
+    //   setIsEnabled1(previousState => !previousState);
+    // };
+  
+    // const toggleSwitch2 = () => {
+    //   setIsEnabled2(previousState => !previousState);
+    // };
+  
+    // const toggleSwitch3 = () => {
+    //   setIsEnabled3(previousState => !previousState);
+    // };
+    const [isEnabled1, setIsEnabled1] = useState(
+        localStorage.getItem('switch1') === 'true'
+      );
+      const [isEnabled2, setIsEnabled2] = useState(
+        localStorage.getItem('switch2') === 'true'
+      );
+      const [isEnabled3, setIsEnabled3] = useState(
+        localStorage.getItem('switch3') === 'true'
+      );
+    
+      const toggleSwitch1 = () => {
+        const newValue = !isEnabled1;
+        setIsEnabled1(newValue);
+        localStorage.setItem('switch1', newValue.toString());
+      };
+    
+      const toggleSwitch2 = () => {
+        const newValue = !isEnabled2;
+        setIsEnabled2(newValue);
+        localStorage.setItem('switch2', newValue.toString());
+      };
+    
+      const toggleSwitch3 = () => {
+        const newValue = !isEnabled3;
+        setIsEnabled3(newValue);
+        localStorage.setItem('switch3', newValue.toString());
+      };
+    
+      useEffect(() => {
+        // Khôi phục giá trị từ localStorage khi trang web được tải lại
+        const savedSwitch1 = localStorage.getItem('switch1');
+        if (savedSwitch1) {
+          setIsEnabled1(savedSwitch1 === 'true');
+        }
+    
+        const savedSwitch2 = localStorage.getItem('switch2');
+        if (savedSwitch2) {
+          setIsEnabled2(savedSwitch2 === 'true');
+        }
+    
+        const savedSwitch3 = localStorage.getItem('switch3');
+        if (savedSwitch3) {
+          setIsEnabled3(savedSwitch3 === 'true');
+        }
+      }, []);
     return (
         <View style={styles.contaiter}>
             <Pressable style={styles.btn} onPress={() => navigation.goBack()}>
@@ -13,12 +77,36 @@ const Light_Dark = ({navigation}) => {
             <View style={styles.final}>
                 <View style={styles.body}>
                     <Text style={styles.text1}>Đang bật</Text>
+                    <Switch
+        style={styles.switch}
+        trackColor={{ false: '#767577', true: '#81b0ff' }}
+        thumbColor={isEnabled1 ? '#f5dd4b' : '#f4f3f4'}
+        ios_backgroundColor="#3e3e3e"
+        onValueChange={toggleSwitch1}
+        value={isEnabled1}
+      />
                 </View>
                 <View style={styles.body}>
                     <Text style={styles.text1}>Tắt</Text>
+                    <Switch
+        style={styles.switch}
+        trackColor={{ false: '#767577', true: '#81b0ff' }}
+        thumbColor={isEnabled2 ? '#f5dd4b' : '#f4f3f4'}
+        ios_backgroundColor="#3e3e3e"
+        onValueChange={toggleSwitch2}
+        value={isEnabled2}
+      />
                 </View>
                 <View style={styles.body}>
                     <Text style={styles.text1}>Hệ thống</Text>
+                    <Switch
+        style={styles.switch}
+        trackColor={{ false: '#767577', true: '#81b0ff' }}
+        thumbColor={isEnabled3 ? '#f5dd4b' : '#f4f3f4'}
+        ios_backgroundColor="#3e3e3e"
+        onValueChange={toggleSwitch3}
+        value={isEnabled3}
+      />
                 </View>
             </View>
             
@@ -168,6 +256,11 @@ const styles = StyleSheet.create({
         width: "70%",
         fontSize: 16,
         color: "#000",
+    },
+    switch: {
+        position: "absolute",
+        left: 310,
+        // top: 50,
     },
 });
 

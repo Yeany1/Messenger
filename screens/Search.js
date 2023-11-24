@@ -49,7 +49,7 @@ export default function Search( {navigation}) {
   return (
     <SafeAreaView style={styles.container}>
       <SafeAreaView style={styles.containerHeader}>
-        <TouchableOpacity style={styles.back}>
+        <TouchableOpacity style={styles.back} onPress={() => navigation.navigate("Containers")}>
           <Image
             style={{ width: 25, height: 25 }}
             source={require("/assets/icons/back.svg")}

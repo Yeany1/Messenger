@@ -1,16 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import { useNavigation } from "@react-navigation/native";
 import UserChat from "./UserChat";
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  TouchableOpacity,
-  TextInput,
-  SafeAreaView,
-  ImageBackground,
-} from "react-native";
+import {StyleSheet, Text, View, Image, TouchableOpacity, TextInput, SafeAreaView, ImageBackground,} from "react-native";
 import { useEffect, useState } from "react";
 import { FlatList, ScrollView } from "react-native";
 // import { useNavigation } from "@react-navigation/native";
