@@ -21,11 +21,10 @@ const Containers = () => {
             iconName =  "zi-video-solid";
           } else if (route.name === "Phonebook") {
             iconName =  "zi-members-solid" ;
+          } else if (route.name === "YourStory") {
+            iconName = "zi-more-grid-solid" ;
           } else if (route.name === "Menu") {
-            iconName = "zi-user-solid" ;
-          }
-          else if (route.name === "YourStory") {
-            iconName = "zi-user-solid" ;
+            iconName = "zi-user-settings-solid" ;
           }
           return (
             <Icon
@@ -53,14 +52,15 @@ const Containers = () => {
         component={Phonebook}
         options={{ headerShown: false }}
       />
-      <Tab.Screen
-        name="Menu"
-        component={Menu}
-        options={{ headerShown: false }}
-      />
+      
       <Tab.Screen
         name="YourStory"
         component={YourStory}
+        options={{ headerShown: false }}
+      />
+      <Tab.Screen
+        name="Menu"
+        component={Menu}
         options={{ headerShown: false }}
       />
       
