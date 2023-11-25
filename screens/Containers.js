@@ -7,6 +7,7 @@ import Menu from "./Menu";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Icon } from "zmp-ui";
 import TimKiem from "./Menu/TimKiem";
+import YourStory from "./YourStory";
 const Tab = createBottomTabNavigator();
 const Containers = () => {
   return (
@@ -23,7 +24,9 @@ const Containers = () => {
           } else if (route.name === "Menu") {
             iconName = "zi-user-solid" ;
           }
-
+          else if (route.name === "YourStory") {
+            iconName = "zi-user-solid" ;
+          }
           return (
             <Icon
               icon={iconName} style={{ color: focused ? "#006AF5" : "#000" }}/>
@@ -55,6 +58,12 @@ const Containers = () => {
         component={Menu}
         options={{ headerShown: false }}
       />
+      <Tab.Screen
+        name="YourStory"
+        component={YourStory}
+        options={{ headerShown: false }}
+      />
+      
     </Tab.Navigator>
   );
 };

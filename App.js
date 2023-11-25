@@ -49,9 +49,7 @@ const App = () => {
          <Provider store={store}>
              <NavigationContainer>
                  {hideSplashScreen ? (
-                     <Stack.Navigator screenOptions={{ headerShown: false }}
-                        initialRouteName="YourStory"
-                     >
+                     <Stack.Navigator >
                          <Stack.Screen name="Login_Register" component={Login_Register} options={{ headerShown: false }}/>
                          <Stack.Screen name="Login" component={Login} options={{ headerShown: false }}/>
                          <Stack.Screen name="Forgot_Password" component={Forgot_Password} options={{ headerShown: false }}/>
@@ -78,7 +76,7 @@ const App = () => {
                          <Stack.Screen name="Profile_Screen" component={Profile_Screen} options={{ headerShown: false }}/>
                          <Stack.Screen name="Call_Screen" component={Call_Screen} options={{ headerShown: false }}/>
                          <Stack.Screen name="AddGoup_Screen" component={AddGoup_Screen} options={{ headerShown: false }}/>
-                            <Stack.Screen name="YourStory" component={YourStory} options={{ headerShown: false }}/>
+                        <Stack.Screen name="YourStory" component={YourStory} options={{ headerShown: false }}/>
                      </Stack.Navigator>
                  ) : null} 
              </NavigationContainer>
