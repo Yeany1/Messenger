@@ -507,7 +507,7 @@ export default function Phonebook({ navigation }) {
           ></Image>
           <TextInput
             style={styles.searchInput}
-            placeholder="Search"
+            placeholder="Tìm kiếm"
             placeholderTextColor="#8E8E93"
             value={keyword}
             onChangeText={setKeyword}
@@ -571,11 +571,15 @@ const styles = StyleSheet.create({
   },
 
   headerTitle: {
-    fontFamily: "SF Pro Display",
-    fontWeight: 700,
-    fontstyle: "normal",
-    fontSize: 30,
-    marginLeft: 10,
+    // fontFamily: "SF Pro Display",
+    // fontWeight: 700,
+    // fontstyle: "normal",
+    // fontSize: 30,
+    // marginLeft: 10,
+    fontSize: 22,
+    fontWeight: "bold",
+    color: "#000",
+    marginLeft: 90,
   },
 
   newchat_icon: {

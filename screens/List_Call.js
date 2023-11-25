@@ -630,7 +630,7 @@ export default function Chats({ navigation }) {
 
 
           
-          <Text style={styles.headerTitle}>Calls</Text>
+          <Text style={styles.headerTitle}>Cuộc gọi</Text>
         </SafeAreaView>
 
         <View style={styles.groupIconHeader}>
@@ -688,7 +688,7 @@ export default function Chats({ navigation }) {
           </View>
         </Modal>
 
-        <Text style={styles.textRecent}>Recent</Text>
+        <Text style={styles.textRecent}>Gần đây nhất</Text>
 
         <FlatList
           data={data}
@@ -728,9 +728,10 @@ const styles = StyleSheet.create({
   },
 
   headerTitle: {
-    fontSize: 30,
+    fontSize: 22,
     fontWeight: "bold",
     color: "#000",
+    marginLeft: 40,
   },
 
   iconOval: {

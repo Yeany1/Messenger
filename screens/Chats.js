@@ -485,7 +485,7 @@ export default function Chats({ navigation }) {
       </Modal>
 
           
-          <Text style={styles.headerTitle}>Chats</Text>
+          <Text style={styles.headerTitle}>Đoạn chat</Text>
         </SafeAreaView>
         <TouchableOpacity style={styles.newchat_icon}
           onPress={() => navigation.navigate("AddGoup_Screen",{
@@ -513,7 +513,7 @@ export default function Chats({ navigation }) {
           <Text
             style={styles.searchInput}
             
-          >Search</Text>
+          >Tìm kiếm</Text>
         </TouchableOpacity>
 
         <ScrollView
@@ -625,11 +625,15 @@ const styles = StyleSheet.create({
   },
 
   headerTitle: {
-    fontFamily: "SF Pro Display",
-    fontWeight: 700,
-    fontstyle: "normal",
-    fontSize: 30,
-    marginLeft: 10,
+    // fontFamily: "SF Pro Display",
+    // fontWeight: 700,
+    // fontstyle: "normal",
+    // fontSize: 30,
+    // marginLeft: 10,
+    fontSize: 22,
+    fontWeight: "bold",
+    color: "#000",
+    marginLeft: 80,
   },
 
   searchBar: {

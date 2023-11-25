@@ -447,7 +447,7 @@ export default function YourStory({ navigation }) {
           </TouchableOpacity>
         </View>
       </Modal>
-          <Text style={styles.headerTitle}>Stories</Text>
+          <Text style={styles.headerTitle}>Tin</Text>
       </SafeAreaView>
 
         <ScrollView style={styles.containerBody}>
@@ -578,14 +578,11 @@ const styles = StyleSheet.create({
     },
 
     headerTitle: {
-        fontSize: 30,
-        fontWeight: "bold",
-        color: "#000",
-        marginLeft: 10,
-    },
-
-    buttonMore: {
-        marginRight: 20,
+        fontSize: 22,
+    fontWeight: "bold",
+    color: "#000",
+    left: 80,
+    position: "absolute",
     },
 
     imageBackground: {
