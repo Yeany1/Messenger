@@ -49,7 +49,7 @@ const App = () => {
          <Provider store={store}>
              <NavigationContainer>
                  {hideSplashScreen ? (
-                     <Stack.Navigator >
+                     <Stack.Navigator>
                          <Stack.Screen name="Login_Register" component={Login_Register} options={{ headerShown: false }}/>
                          <Stack.Screen name="Login" component={Login} options={{ headerShown: false }}/>
                          <Stack.Screen name="Forgot_Password" component={Forgot_Password} options={{ headerShown: false }}/>

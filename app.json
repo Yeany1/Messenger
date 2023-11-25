@@ -24,7 +24,7 @@
       }            
     },              
     "web": {                             
-      "favicon": "./assets/bgr22.png"              
+      "favicon": "/assets/icons8-facebook-messenger-48.png"              
     }    
   }    
   

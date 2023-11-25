@@ -18,7 +18,10 @@ const Register_Phone = ({ navigation, route }) => {
         const md5 = require('md5');
         if (soDienThoai.trim() === "") alert("Vui lòng nhập số điện thoại");
         else if (matKhau.trim() === "") alert("Vui lòng nhập mật khẩu");
+        
         else if( !checked || !checked2) alert("Vui lòng đồng ý với các điều khoản");
+        else if (!response.ok)
+            throw new Error('Lỗi mạng hoặc lỗi server');
         else {
             fetch(`http://localhost:3000/users?soDienThoai=${soDienThoai}`)
                 .then(res => res.json())

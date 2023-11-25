@@ -330,8 +330,8 @@ const Menu = ({ navigation }) => {
           </TouchableOpacity>
         </SafeAreaView>
 
-        <SafeAreaView style={{}}>
-              <TouchableOpacity style={styles.Meta}>
+        <SafeAreaView style={{}} >
+              <TouchableOpacity style={styles.Meta} onPress={()=> navigation.navigate('Help')}>
                 <SafeAreaView style={styles.buttonMeta}>
                    <Image style={{width: 20, height: 20, marginBottom: 5}}
                  source={require("/assets/icons/meta.png")}/>

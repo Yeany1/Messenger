@@ -19,7 +19,7 @@ const GiamSat = ({navigation}) => {
                     <Text style={styles.txt1}>Trung tâm trợ giúp</Text>
                     <TouchableOpacity onPress={() => navigation.goBack()}>
                         <SafeAreaView>
-                        <Image style={styles.iconleft} source={require("/assets/left22.png")}/>
+                        <Image style={styles.iconleft} source={require("/assets/right.png")}/>
                         </SafeAreaView>
                     </TouchableOpacity>
                 </SafeAreaView>
@@ -112,11 +112,11 @@ const styles = StyleSheet.create({
 
     },
     iconleft: {
-      width: 20,
-      height: 20,
-      left: 50,
+      width: 50,
+      height: 50,
+      left: 30,
       position: "absolute",
-      top: -10,
+      top: -25,
     },
     icon_messmn: {
       width: 60,

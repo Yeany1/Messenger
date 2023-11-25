@@ -15,15 +15,15 @@ const Containers = () => {
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
-          if (route.name === "Chats") {
+          if (route.name === "Đoạn chat") {
             iconName =  "zi-chat-solid" ;
-          } else if (route.name === "List_Call") {
+          } else if (route.name === "Cuộc gọi") {
             iconName =  "zi-video-solid";
-          } else if (route.name === "Phonebook") {
+          } else if (route.name === "Danh bạ") {
             iconName =  "zi-members-solid" ;
-          } else if (route.name === "YourStory") {
+          } else if (route.name === "Tin") {
             iconName = "zi-more-grid-solid" ;
-          } else if (route.name === "Menu") {
+          } else if (route.name === "Cài đặt") {
             iconName = "zi-user-settings-solid" ;
           }
           return (
@@ -38,28 +38,28 @@ const Containers = () => {
       })}
     >
       <Tab.Screen
-        name="Chats"
+        name="Đoạn chat"
         component={Chats}
         options={{ headerShown: false }}
       />
       <Tab.Screen
-        name="List_Call"
+        name="Cuộc gọi"
         component={List_Call}
         options={{ headerShown: false }}
       />
       <Tab.Screen
-        name="Phonebook"
+        name="Danh bạ"
         component={Phonebook}
         options={{ headerShown: false }}
       />
       
       <Tab.Screen
-        name="YourStory"
+        name="Tin"
         component={YourStory}
         options={{ headerShown: false }}
       />
       <Tab.Screen
-        name="Menu"
+        name="Cài đặt"
         component={Menu}
         options={{ headerShown: false }}
       />
